@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Fonts ── */
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Outfit", system-ui, sans-serif;
+  --font-data: "IBM Plex Mono", "Courier New", monospace;
+
+  /* ── Color system: Laterite & Indigo ── */
+  --color-midnight: #0B1121;
+  --color-deep-water: #141D2F;
+  --color-dusk: #1C2740;
+  --color-parchment: #F0EBE3;
+  --color-haze: #7E8CA0;
+  --color-mist: #4A5568;
+  --color-laterite: #C4613C;
+  --color-aso-oke: #3B6B9C;
+  --color-gold: #D4A853;
+  --color-success: #4A9B6E;
+  --color-warning: #D49A3C;
+  --color-error: #B84242;
+
+  /* Light mode (blog only) */
+  --color-cream: #FAFAF5;
+  --color-cream-surface: #F0EDE6;
+  --color-ink: #1A1A1A;
+  --color-ink-muted: #5A6474;
+}
+
+/* ── Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-midnight);
+  color: var(--color-parchment);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* ── Weave pattern (Aso-Oke abstracted) ── */
+.weave-pattern {
+  background-image:
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 16px,
+      rgba(59, 107, 156, 0.06) 16px,
+      rgba(59, 107, 156, 0.06) 17px
+    ),
+    repeating-linear-gradient(
+      -60deg,
+      transparent,
+      transparent 16px,
+      rgba(196, 97, 60, 0.04) 16px,
+      rgba(196, 97, 60, 0.04) 17px
+    );
+}
+
+/* ── Gradient mesh animation (hero background) ── */
+.mesh-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 55%, rgba(196, 97, 60, 0.09) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 82% 28%, rgba(59, 107, 156, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 50% 85%, rgba(212, 168, 83, 0.05) 0%, transparent 70%);
+  animation: meshShift 24s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes meshShift {
+  0%   { opacity: 1;   transform: scale(1); }
+  50%  { opacity: 0.75; transform: scale(1.06); }
+  100% { opacity: 1;   transform: scale(1); }
+}
+
+/* ── Section spacing ── */
+.section-spacing {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-midnight); }
+::-webkit-scrollbar-thumb { background: var(--color-dusk); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-haze); }
+
+/* ── Selection ── */
+::selection {
+  background: rgba(196, 97, 60, 0.3);
+  color: var(--color-parchment);
+}
+
+/* ── Focus visible ── */
+:focus-visible {
+  outline: 2px solid var(--color-laterite);
+  outline-offset: 3px;
+}
