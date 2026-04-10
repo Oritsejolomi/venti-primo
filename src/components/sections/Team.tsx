@@ -1,47 +1,31 @@
-import { Container } from "@/components/ui/Container";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-
-const placeholders = [
-  { initials: "FD", role: "Founder & Director" },
-  { initials: "TA", role: "Head of Transaction Advisory" },
-  { initials: "HT", role: "Head of Technology" },
-  { initials: "CM", role: "Head of Capital Markets" },
-  { initials: "PW", role: "Head of Private Wealth" },
+const TEAM = [
+  { role: "Founder & Director", focus: "Strategy & Leadership" },
+  { role: "Head of Transaction Advisory", focus: "Deal Origination & Structuring" },
+  { role: "Head of Technology", focus: "Network Infrastructure" },
+  { role: "Head of Capital Markets", focus: "Capital Raising & Investor Relations" },
+  { role: "Head of Private Wealth", focus: "HNW Advisory & Portfolio Management" },
+  { role: "General Counsel", focus: "Legal, Compliance & Regulatory" },
 ];
 
 export function Team() {
   return (
-    <section id="team" className="section-spacing bg-[var(--color-deep-water)]">
-      <Container>
-        <SectionLabel>Our Team</SectionLabel>
-        <h2 className="font-[family-name:var(--font-display)] text-[36px] md:text-[42px] leading-[1.15] text-[var(--color-parchment)] mb-12">
-          The people behind the platform.
+    <section id="team" style={{ backgroundColor: "#223860", padding: "clamp(96px,12vw,180px) 0" }}>
+      <div className="mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20">
+        <p className="font-[family-name:var(--font-data)]" style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#2563EB", marginBottom: "48px", fontWeight: 500 }}>
+          Our Team
+        </p>
+        <h2 className="font-[family-name:var(--font-display)]" style={{ fontSize: "clamp(32px,4.5vw,56px)", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.02em", color: "#F0EBE3", marginBottom: "80px" }}>
+          The people behind<br />the platform.
         </h2>
-
-        <div className="flex flex-wrap gap-6">
-          {placeholders.map((p) => (
-            <div
-              key={p.role}
-              className="group bg-[var(--color-midnight)] border border-[rgba(59,107,156,0.1)] rounded-lg p-8 flex flex-col items-center gap-4 w-[200px] hover:-translate-y-[2px] hover:border-[rgba(59,107,156,0.3)] transition-all duration-200"
-            >
-              {/* Avatar circle */}
-              <div className="w-16 h-16 rounded-full bg-[var(--color-dusk)] border border-[var(--color-aso-oke)] flex items-center justify-center">
-                <span className="font-[family-name:var(--font-body)] text-[15px] font-medium text-[var(--color-aso-oke)]">
-                  {p.initials}
-                </span>
-              </div>
-              <div className="text-center">
-                <p className="font-[family-name:var(--font-body)] text-[13px] font-medium text-[var(--color-parchment)] mb-1">
-                  Team Member
-                </p>
-                <p className="font-[family-name:var(--font-body)] text-[12px] text-[var(--color-haze)]">
-                  {p.role}
-                </p>
-              </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" style={{ borderTop: "1px solid rgba(240,235,227,0.07)" }}>
+          {TEAM.map((m, i) => (
+            <div key={i} style={{ padding: "32px 0", borderBottom: "1px solid rgba(240,235,227,0.07)" }}>
+              <p className="font-[family-name:var(--font-body)]" style={{ fontSize: "15px", fontWeight: 500, color: "#F0EBE3", marginBottom: "8px" }}>{m.role}</p>
+              <p className="font-[family-name:var(--font-data)]" style={{ fontSize: "10px", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(240,235,227,0.28)" }}>{m.focus}</p>
             </div>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

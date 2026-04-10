@@ -4,7 +4,6 @@ import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { Container } from "@/components/ui/Container";
 
-// Article data — replace with MDX/CMS when content is ready
 const articles: Record<string, { title: string; date: string; category: string; body: string }> = {
   "nigeria-macro-q2-2026": {
     title: "Nigeria Macro Outlook: Q2 2026",
@@ -50,35 +49,31 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <Nav />
       <main className="pt-28 pb-24">
         <Container>
-          {/* Back link */}
           <Link
             href="/insights"
-            className="font-[family-name:var(--font-body)] text-[13px] text-[var(--color-haze)] hover:text-[var(--color-laterite)] transition-colors mb-10 inline-flex items-center gap-2 no-underline"
+            className="font-[family-name:var(--font-body)] text-[13px] text-[var(--color-haze)] hover:text-[var(--color-cobalt)] transition-colors mb-10 inline-flex items-center gap-2 no-underline"
           >
             ← All Insights
           </Link>
 
-          {/* Article header */}
           <div className="max-w-[760px] mt-8">
             <div className="flex items-center gap-3 mb-6">
               <span className="font-[family-name:var(--font-data)] text-[12px] text-[var(--color-mist)]">
                 {article.date}
               </span>
               <span className="w-1 h-1 rounded-full bg-[var(--color-mist)]" />
-              <span className="font-[family-name:var(--font-body)] text-[12px] text-[var(--color-aso-oke)] uppercase tracking-[0.06em]">
+              <span className="font-[family-name:var(--font-body)] text-[12px] text-[var(--color-cobalt)] uppercase tracking-[0.06em]">
                 {article.category}
               </span>
             </div>
 
-            <h1 className="font-[family-name:var(--font-display)] text-[40px] md:text-[52px] leading-[1.1] text-[var(--color-parchment)] mb-10">
+            <h1 className="font-[family-name:var(--font-display)] text-[36px] md:text-[48px] font-bold leading-[1.15] tracking-tight text-[var(--color-parchment)] mb-10">
               {article.title}
             </h1>
 
-            {/* Article divider */}
-            <div className="h-px bg-[rgba(126,140,160,0.15)] mb-10" />
+            <div className="h-px bg-[rgba(160,180,200,0.15)] mb-10" />
 
-            {/* Body */}
-            <div className="font-[family-name:var(--font-body)] text-[17px] leading-[1.75] text-[var(--color-haze)] max-w-[680px]">
+            <div className="font-[family-name:var(--font-body)] text-[15px] leading-[1.7] text-[var(--color-haze)] max-w-[680px]">
               <p>{article.body}</p>
             </div>
           </div>

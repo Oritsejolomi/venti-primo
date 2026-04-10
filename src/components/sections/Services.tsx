@@ -1,68 +1,32 @@
-import { Container } from "@/components/ui/Container";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-
-const services = [
-  {
-    num: "01",
-    title: "Deal Origination & Transaction Advisory",
-    description:
-      "Sourcing, structuring, and executing investment transactions across energy, infrastructure, and capital markets.",
-    audience: "Corporates, sponsors, operators",
-  },
-  {
-    num: "02",
-    title: "Capital Raising & Investor Access",
-    description:
-      "Connecting enterprises to institutional offshore capital through bespoke fundraising mandates.",
-    audience: "Corporates seeking capital",
-  },
-  {
-    num: "03",
-    title: "Technology Infrastructure",
-    description:
-      "Network design, deployment, and management for enterprises and institutions across emerging markets.",
-    audience: "Corporates, telcos, government",
-  },
-  {
-    num: "04",
-    title: "Private Wealth Management",
-    description:
-      "Bespoke investment solutions and portfolio advisory for high-net-worth individuals and family offices.",
-    audience: "HNW individuals, families",
-  },
+const SERVICES = [
+  { n: "01", title: "Deal Origination & Transaction Advisory", body: "Sourcing, structuring, and executing investment transactions across energy, infrastructure, and capital markets." },
+  { n: "02", title: "Capital Raising & Investor Access", body: "Connecting enterprises to institutional offshore capital through bespoke fundraising mandates." },
+  { n: "03", title: "Technology Infrastructure", body: "Network design, deployment, and management for enterprises and institutions across emerging markets." },
+  { n: "04", title: "Private Wealth Management", body: "Bespoke investment solutions and portfolio advisory for high-net-worth individuals and family offices." },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="section-spacing bg-[var(--color-deep-water)]">
-      <Container>
-        <SectionLabel>What We Do</SectionLabel>
-        <h2 className="font-[family-name:var(--font-display)] text-[36px] md:text-[42px] leading-[1.15] text-[var(--color-parchment)] mb-12 max-w-[560px]">
-          Four practices. One platform.
+    <section id="services" style={{ backgroundColor: "#223860", padding: "clamp(96px,12vw,180px) 0" }}>
+      <div className="mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20">
+        <p className="font-[family-name:var(--font-data)]" style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#2563EB", marginBottom: "48px", fontWeight: 500 }}>
+          What We Do
+        </p>
+        <h2 className="font-[family-name:var(--font-display)]" style={{ fontSize: "clamp(32px,4.5vw,56px)", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.02em", color: "#F0EBE3", marginBottom: "80px" }}>
+          Four practices.<br />One platform.
         </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {services.map((s) => (
-            <div
-              key={s.num}
-              className="group bg-[var(--color-midnight)] border border-[rgba(59,107,156,0.1)] rounded-lg p-9 flex flex-col gap-5 hover:-translate-y-[2px] hover:border-[var(--color-laterite)] hover:shadow-[0_0_30px_rgba(196,97,60,0.06)] transition-all duration-200 ease-out"
-            >
-              <div className="font-[family-name:var(--font-data)] text-[14px] font-medium text-[var(--color-laterite)] border border-[var(--color-laterite)] rounded-[4px] w-10 h-10 flex items-center justify-center">
-                {s.num}
+        <div style={{ borderTop: "1px solid rgba(240,235,227,0.07)" }}>
+          {SERVICES.map((s) => (
+            <div key={s.n} style={{ display: "grid", gridTemplateColumns: "48px 1fr", gap: "0 40px", padding: "44px 0", borderBottom: "1px solid rgba(240,235,227,0.07)" }}>
+              <span className="font-[family-name:var(--font-data)]" style={{ fontSize: "11px", color: "rgba(240,235,227,0.18)", paddingTop: "4px" }}>{s.n}</span>
+              <div>
+                <h3 className="font-[family-name:var(--font-display)]" style={{ fontSize: "clamp(18px,2vw,24px)", fontWeight: 500, lineHeight: 1.3, color: "#F0EBE3", marginBottom: "16px" }}>{s.title}</h3>
+                <p className="font-[family-name:var(--font-body)]" style={{ fontSize: "15px", lineHeight: 1.7, color: "#A0B4C8", maxWidth: "480px" }}>{s.body}</p>
               </div>
-              <h3 className="font-[family-name:var(--font-display)] text-[22px] leading-[1.25] text-[var(--color-parchment)]">
-                {s.title}
-              </h3>
-              <p className="text-[var(--color-haze)] text-[15px] leading-[1.6] flex-1">
-                {s.description}
-              </p>
-              <p className="font-[family-name:var(--font-data)] text-[11px] text-[var(--color-mist)] uppercase tracking-[0.08em]">
-                {s.audience}
-              </p>
             </div>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

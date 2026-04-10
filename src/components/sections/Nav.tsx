@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
-const links = [
-  { label: "About", href: "#about" },
+const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "Sectors", href: "#sectors" },
   { label: "Track Record", href: "#track-record" },
@@ -14,90 +13,59 @@ const links = [
 ];
 
 export function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [solid, setSolid] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setSolid(window.scrollY > 60);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[rgba(11,17,33,0.92)] backdrop-blur-xl border-b border-[rgba(59,107,156,0.12)]"
-          : "bg-transparent"
-      }`}
+      className="fixed inset-x-0 top-0 z-50 transition-all duration-500"
+      style={{
+        backgroundColor: solid ? "rgba(26,45,80,0.97)" : "transparent",
+        borderBottom: solid ? "1px solid rgba(240,235,227,0.06)" : "none",
+      }}
     >
-      <Container className="flex items-center justify-between py-5">
-        {/* Wordmark */}
-        <a
-          href="#"
-          className="font-[family-name:var(--font-display)] text-[22px] text-[var(--color-parchment)] tracking-[0.02em] no-underline"
-        >
-          Venti Primo
-        </a>
+      <div className="mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20 flex items-center justify-between py-5">
+        <Link href="/" className="flex items-center gap-3" style={{ textDecoration: "none" }}>
+          <Image src="/logo.svg" alt="Venti Primo" width={28} height={28} />
+          <span
+            className="font-[family-name:var(--font-display)]"
+            style={{ fontSize: "16px", fontWeight: 700, letterSpacing: "-0.02em", color: "#F0EBE3" }}
+          >
+            VENTI PRIMO
+          </span>
+        </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-8">
-          {links.map((l) => (
+          {NAV_LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="font-[family-name:var(--font-body)] text-[14px] font-medium text-[var(--color-haze)] hover:text-[var(--color-parchment)] transition-colors duration-200 tracking-[0.02em]"
+              className="font-[family-name:var(--font-body)] text-[13px] font-medium transition-colors duration-200"
+              style={{ color: "rgba(240,235,227,0.45)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#F0EBE3")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(240,235,227,0.45)")}
             >
               {l.label}
             </a>
           ))}
-          <Button href="#contact" size="sm">
-            Get in Touch
-          </Button>
         </nav>
 
-        {/* Mobile hamburger */}
-        <button
-          className="lg:hidden flex flex-col gap-[5px] p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+        <a
+          href="#contact"
+          className="font-[family-name:var(--font-body)] text-[13px] font-semibold text-[#F0EBE3] px-5 py-2 transition-colors duration-200"
+          style={{ border: "1px solid #2563EB", borderRadius: "9999px" }}
+          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#2563EB")}
+          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "transparent")}
         >
-          <span
-            className={`block w-6 h-[1.5px] bg-[var(--color-parchment)] transition-all duration-200 origin-center ${
-              menuOpen ? "rotate-45 translate-y-[6.5px]" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-[1.5px] bg-[var(--color-parchment)] transition-all duration-200 ${
-              menuOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block w-6 h-[1.5px] bg-[var(--color-parchment)] transition-all duration-200 origin-center ${
-              menuOpen ? "-rotate-45 -translate-y-[6.5px]" : ""
-            }`}
-          />
-        </button>
-      </Container>
-
-      {/* Mobile overlay */}
-      {menuOpen && (
-        <div className="lg:hidden bg-[var(--color-deep-water)] border-t border-[rgba(59,107,156,0.12)] px-6 py-8 flex flex-col gap-6">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setMenuOpen(false)}
-              className="font-[family-name:var(--font-body)] text-[16px] font-medium text-[var(--color-parchment)] no-underline"
-            >
-              {l.label}
-            </a>
-          ))}
-          <Button href="#contact" onClick={() => setMenuOpen(false)} className="w-full mt-2">
-            Get in Touch
-          </Button>
-        </div>
-      )}
+          Enquire
+        </a>
+      </div>
     </header>
   );
 }

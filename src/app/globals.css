@@ -1,37 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Fonts ── */
-  --font-display: "Instrument Serif", Georgia, serif;
-  --font-body: "Outfit", system-ui, sans-serif;
-  --font-data: "IBM Plex Mono", "Courier New", monospace;
+  /* ── Fonts (Cobalt brand guide) ── */
+  --font-display: "Martian Mono", monospace;
+  --font-body: "Fira Sans", system-ui, sans-serif;
+  --font-data: "Martian Mono", monospace;
 
-  /* ── Color system: Laterite & Indigo ── */
-  --color-midnight: #0B1121;
-  --color-deep-water: #141D2F;
-  --color-dusk: #1C2740;
+  /* ── Color system: Cobalt ── */
+  --color-midnight: #1A2D50;
+  --color-deep-water: #223860;
+  --color-dusk: #2D4570;
   --color-parchment: #F0EBE3;
-  --color-haze: #7E8CA0;
-  --color-mist: #4A5568;
-  --color-laterite: #C4613C;
-  --color-aso-oke: #3B6B9C;
+  --color-haze: #A0B4C8;
+  --color-mist: #7A90AA;
+  --color-cobalt: #2563EB;
+  --color-cobalt-dark: #1D4ED8;
+  --color-cobalt-deep: #1E3A8A;
   --color-gold: #D4A853;
   --color-success: #4A9B6E;
   --color-warning: #D49A3C;
   --color-error: #B84242;
 
   /* Light mode (blog only) */
-  --color-cream: #FAFAF5;
-  --color-cream-surface: #F0EDE6;
-  --color-ink: #1A1A1A;
-  --color-ink-muted: #5A6474;
+  --color-cream: #F7F5F0;
+  --color-cream-surface: #EDEAE4;
+  --color-ink: #1A1F2E;
+  --color-ink-muted: #5A6880;
 }
 
 /* ── Base ── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 html {
@@ -44,51 +47,21 @@ body {
   background-color: var(--color-midnight);
   color: var(--color-parchment);
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.7;
-}
-
-/* ── Weave pattern (Aso-Oke abstracted) ── */
-.weave-pattern {
-  background-image:
-    repeating-linear-gradient(
-      60deg,
-      transparent,
-      transparent 16px,
-      rgba(59, 107, 156, 0.06) 16px,
-      rgba(59, 107, 156, 0.06) 17px
-    ),
-    repeating-linear-gradient(
-      -60deg,
-      transparent,
-      transparent 16px,
-      rgba(196, 97, 60, 0.04) 16px,
-      rgba(196, 97, 60, 0.04) 17px
-    );
-}
-
-/* ── Gradient mesh animation (hero background) ── */
-.mesh-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 15% 55%, rgba(196, 97, 60, 0.09) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 80% at 82% 28%, rgba(59, 107, 156, 0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 50% 85%, rgba(212, 168, 83, 0.05) 0%, transparent 70%);
-  animation: meshShift 24s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes meshShift {
-  0%   { opacity: 1;   transform: scale(1); }
-  50%  { opacity: 0.75; transform: scale(1.06); }
-  100% { opacity: 1;   transform: scale(1); }
 }
 
 /* ── Section spacing ── */
 .section-spacing {
-  padding-top: 96px;
-  padding-bottom: 96px;
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+
+@media (max-width: 1024px) {
+  .section-spacing {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -106,12 +79,12 @@ body {
 
 /* ── Selection ── */
 ::selection {
-  background: rgba(196, 97, 60, 0.3);
+  background: rgba(37, 99, 235, 0.3);
   color: var(--color-parchment);
 }
 
 /* ── Focus visible ── */
 :focus-visible {
-  outline: 2px solid var(--color-laterite);
+  outline: 2px solid var(--color-cobalt);
   outline-offset: 3px;
 }

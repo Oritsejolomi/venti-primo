@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { instrumentSerif, outfit, ibmPlexMono } from "@/lib/fonts";
+import { martianMono, firaSans } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${instrumentSerif.variable} ${outfit.variable} ${ibmPlexMono.variable}`}
+      className={`${martianMono.variable} ${firaSans.variable}`}
     >
       <body>{children}</body>
     </html>

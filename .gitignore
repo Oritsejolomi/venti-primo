@@ -18,8 +18,18 @@ Thumbs.db
 # Build
 dist/
 build/
+tsconfig.tsbuildinfo
 
 # Logs
 *.log
 npm-debug.log*
 .gstack/
+.gstack-audit/
+
+# Design assets (not source code)
+brand-guide*.html
+Gemini_Generated_Image_*.svg
+Generating_a_Tower_Building_Video.mp4
+Untitled design.mp4
+VentiPrimo_Website_Brief.docx
+DESIGN.md

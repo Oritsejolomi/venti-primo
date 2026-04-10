@@ -1,61 +1,37 @@
-import { Container } from "@/components/ui/Container";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-
-const sectors = [
-  {
-    name: "Oil & Gas and Energy",
-    subs: "Upstream, midstream, downstream, energy transition",
-  },
-  {
-    name: "Infrastructure",
-    subs: "Power, transport, industrial logistics, housing",
-  },
-  {
-    name: "Technology & Digital Infrastructure",
-    subs: "Network solutions, data centres, connectivity",
-  },
-  {
-    name: "Network Infrastructure",
-    subs: "Telecoms, fibre, enterprise networks",
-  },
-  {
-    name: "Financial Services & Capital Markets",
-    subs: "Banking, capital markets, structured finance",
-  },
-  {
-    name: "Global Markets",
-    subs: "Cross-border transactions, international capital flows, diaspora investment",
-  },
+const SECTORS = [
+  { n: "01", name: "Oil & Gas and Energy", sub: "Upstream · Midstream · Energy Transition", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&auto=format&fit=crop" },
+  { n: "02", name: "Infrastructure", sub: "Power · Transport · Industrial Logistics", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80&auto=format&fit=crop" },
+  { n: "03", name: "Technology & Digital", sub: "Network Solutions · Data Centres · Connectivity", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80&auto=format&fit=crop" },
+  { n: "04", name: "Network Infrastructure", sub: "Telecoms · Fibre · Enterprise Networks", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=900&q=80&auto=format&fit=crop" },
+  { n: "05", name: "Financial Services", sub: "Capital Markets · Structured Finance · Banking", img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80&auto=format&fit=crop" },
+  { n: "06", name: "Global Markets", sub: "Cross-Border · Diaspora Investment · FX", img: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=900&q=80&auto=format&fit=crop" },
 ];
 
 export function Sectors() {
   return (
-    <section id="sectors" className="section-spacing overflow-hidden">
-      <Container>
-        <SectionLabel>Where We Operate</SectionLabel>
-        <h2 className="font-[family-name:var(--font-display)] text-[36px] md:text-[42px] leading-[1.15] text-[var(--color-parchment)] mb-12">
-          Six sectors. Highest-conviction markets.
+    <section id="sectors" style={{ backgroundColor: "#1A2D50", padding: "clamp(96px,12vw,180px) 0", overflow: "hidden" }}>
+      <div className="mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20">
+        <p className="font-[family-name:var(--font-data)]" style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#2563EB", marginBottom: "48px", fontWeight: 500 }}>
+          Where We Operate
+        </p>
+        <h2 className="font-[family-name:var(--font-display)]" style={{ fontSize: "clamp(32px,4.5vw,56px)", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.02em", color: "#F0EBE3", marginBottom: "64px" }}>
+          Six sectors.<br />Highest-conviction markets.
         </h2>
-      </Container>
+      </div>
 
-      {/* Horizontal scroll row */}
-      <div className="pl-6 md:pl-8 lg:pl-[max(32px,calc((100vw-1280px)/2+32px))]">
-        <div className="flex gap-4 overflow-x-auto pb-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory">
-          {sectors.map((s) => (
-            <div
-              key={s.name}
-              className="weave-pattern relative min-w-[280px] md:min-w-[320px] bg-[var(--color-deep-water)] border border-[rgba(59,107,156,0.1)] rounded-lg p-8 flex-shrink-0 snap-start hover:border-[var(--color-laterite)] transition-colors duration-200 group"
-            >
-              <h3 className="font-[family-name:var(--font-display)] text-[22px] leading-[1.25] text-[var(--color-parchment)] mb-3 relative">
-                {s.name}
-              </h3>
-              <p className="font-[family-name:var(--font-body)] text-[13px] text-[var(--color-mist)] leading-[1.6] relative">
-                {s.subs}
-              </p>
+      <div className="px-8 md:px-14 lg:px-20" style={{ overflowX: "auto", scrollbarWidth: "none" }}>
+        <div style={{ display: "flex", gap: "16px", paddingBottom: "8px" }}>
+          {SECTORS.map((s) => (
+            <div key={s.n} style={{ position: "relative", flexShrink: 0, width: "clamp(280px,26vw,360px)", height: "460px", overflow: "hidden", backgroundImage: `url('${s.img}')`, backgroundSize: "cover", backgroundPosition: "center" }}>
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,45,80,0.97) 0%, rgba(26,45,80,0.3) 55%, rgba(26,45,80,0.05) 100%)" }} />
+              <div style={{ position: "absolute", inset: 0, padding: "32px", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+                <span className="font-[family-name:var(--font-data)]" style={{ fontSize: "10px", color: "rgba(240,235,227,0.25)", letterSpacing: "0.15em", marginBottom: "10px" }}>{s.n}</span>
+                <h3 className="font-[family-name:var(--font-display)]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: 1.3, color: "#F0EBE3", marginBottom: "8px" }}>{s.name}</h3>
+                <p className="font-[family-name:var(--font-data)]" style={{ fontSize: "10px", color: "rgba(240,235,227,0.35)", letterSpacing: "0.06em", lineHeight: 1.7 }}>{s.sub}</p>
+              </div>
             </div>
           ))}
-          {/* Spacer to prevent last card from being cut off */}
-          <div className="min-w-6 flex-shrink-0" />
+          <div style={{ minWidth: "32px", flexShrink: 0 }} />
         </div>
       </div>
     </section>

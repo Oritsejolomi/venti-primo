@@ -1,93 +1,49 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import { Container } from "@/components/ui/Container";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-
-const headlineStats = [
-  { value: "$120M+", label: "Transactions Originated" },
-  { value: "12", label: "Deals Completed" },
-  { value: "6", label: "Sectors Covered" },
+const STATS = [
+  { value: "$120M+", label: "Deal Pipeline" },
+  { value: "12", label: "Transactions" },
+  { value: "6", label: "Sectors" },
 ];
 
-const tombstones = [
-  { sector: "Oil & Gas — Upstream", name: "Confidential", value: "$XXM", role: "Deal Origination" },
-  { sector: "Infrastructure — Power", name: "Confidential", value: "$XXM", role: "Capital Raising" },
-  { sector: "Technology — Network", name: "Confidential", value: "$XXM", role: "Advisory" },
-  { sector: "Financial Services", name: "Confidential", value: "$XXM", role: "Transaction Structuring" },
-  { sector: "Energy Transition", name: "Confidential", value: "$XXM", role: "Deal Origination" },
-  { sector: "Global Markets", name: "Confidential", value: "$XXM", role: "Capital Raising" },
+const DEALS = [
+  { sector: "Oil & Gas — Upstream", type: "Deal Origination", market: "Nigeria" },
+  { sector: "Infrastructure — Power", type: "Capital Raising", market: "West Africa" },
+  { sector: "Technology — Network", type: "Transaction Advisory", market: "Nigeria" },
+  { sector: "Financial Services", type: "Structuring", market: "Pan-African" },
+  { sector: "Energy Transition", type: "Deal Origination", market: "Nigeria" },
+  { sector: "Global Markets", type: "Capital Raising", market: "Cross-border" },
 ];
-
-function StatCounter({ value, label }: { value: string; label: string }) {
-  const [visible, setVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.4 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-    >
-      <div className="font-[family-name:var(--font-data)] text-[40px] md:text-[52px] font-medium text-[var(--color-gold)] tracking-[-0.02em] tabular-nums leading-none mb-2">
-        {value}
-      </div>
-      <div className="font-[family-name:var(--font-body)] text-[12px] uppercase tracking-[0.08em] text-[var(--color-haze)]">
-        {label}
-      </div>
-    </div>
-  );
-}
 
 export function TrackRecord() {
   return (
-    <section id="track-record" className="section-spacing bg-[var(--color-deep-water)]">
-      <Container>
-        <SectionLabel>Track Record</SectionLabel>
-        <h2 className="font-[family-name:var(--font-display)] text-[36px] md:text-[42px] leading-[1.15] text-[var(--color-parchment)] mb-12">
+    <section id="track-record" style={{ backgroundColor: "#223860", padding: "clamp(96px,12vw,180px) 0" }}>
+      <div className="mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20">
+        <p className="font-[family-name:var(--font-data)]" style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#2563EB", marginBottom: "48px", fontWeight: 500 }}>
+          Track Record
+        </p>
+        <h2 className="font-[family-name:var(--font-display)]" style={{ fontSize: "clamp(32px,4.5vw,56px)", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.02em", color: "#F0EBE3", marginBottom: "80px" }}>
           Execution over claims.
         </h2>
-
-        {/* Headline stats — Bloomberg density */}
-        <div className="flex flex-col sm:flex-row gap-10 sm:gap-20 pb-10 mb-10 border-b border-[rgba(126,140,160,0.1)]">
-          {headlineStats.map((s) => (
-            <StatCounter key={s.label} {...s} />
-          ))}
-        </div>
-
-        {/* Tombstone grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {tombstones.map((t, i) => (
-            <div
-              key={i}
-              className="bg-[var(--color-midnight)] border border-[rgba(59,107,156,0.1)] rounded-[4px] p-6"
-            >
-              <div className="font-[family-name:var(--font-data)] text-[11px] uppercase tracking-[0.08em] text-[var(--color-aso-oke)] mb-2">
-                {t.sector}
-              </div>
-              <div className="font-[family-name:var(--font-body)] text-[15px] font-medium text-[var(--color-parchment)] mb-4">
-                {t.name}
-              </div>
-              <div className="flex justify-between items-center font-[family-name:var(--font-data)] text-[13px]">
-                <span className="text-[var(--color-gold)]">{t.value}</span>
-                <span className="text-[var(--color-mist)]">{t.role}</span>
-              </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "48px 80px", marginBottom: "80px", paddingBottom: "64px", borderBottom: "1px solid rgba(240,235,227,0.07)" }}>
+          {STATS.map((s) => (
+            <div key={s.label}>
+              <div className="font-[family-name:var(--font-data)]" style={{ fontSize: "clamp(44px,5.5vw,72px)", fontWeight: 700, color: "#D4A853", lineHeight: 1, letterSpacing: "-0.02em", marginBottom: "12px" }}>{s.value}</div>
+              <div className="font-[family-name:var(--font-data)]" style={{ fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(240,235,227,0.28)" }}>{s.label}</div>
             </div>
           ))}
         </div>
-
-        <p className="font-[family-name:var(--font-data)] text-[11px] text-[var(--color-mist)] mt-6 tracking-[0.04em]">
-          * Transaction details are confidential. Placeholder metrics shown until mandates are disclosed.
+        <div style={{ borderTop: "1px solid rgba(240,235,227,0.07)" }}>
+          {DEALS.map((d, i) => (
+            <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr auto auto", gap: "16px 48px", alignItems: "center", padding: "24px 0", borderBottom: "1px solid rgba(240,235,227,0.07)" }}>
+              <span className="font-[family-name:var(--font-display)]" style={{ fontSize: "16px", fontWeight: 500, color: "#F0EBE3" }}>{d.sector}</span>
+              <span className="font-[family-name:var(--font-data)]" style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "#2563EB", whiteSpace: "nowrap" }}>{d.type}</span>
+              <span className="font-[family-name:var(--font-data)]" style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(240,235,227,0.25)", whiteSpace: "nowrap" }}>{d.market}</span>
+            </div>
+          ))}
+        </div>
+        <p className="font-[family-name:var(--font-data)]" style={{ fontSize: "10px", color: "rgba(240,235,227,0.18)", marginTop: "32px", letterSpacing: "0.05em" }}>
+          Transaction details are confidential. Mandates disclosed only with client consent.
         </p>
-      </Container>
+      </div>
     </section>
   );
 }

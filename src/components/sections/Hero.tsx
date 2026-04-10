@@ -1,94 +1,174 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-
-const stats = [
-  { value: "$120M+", label: "Deal Pipeline" },
-  { value: "6", label: "Sectors" },
-  { value: "4", label: "Markets" },
-];
-
-function AnimatedStat({ value, label }: { value: string; label: string }) {
-  const [visible, setVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.3 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div ref={ref} className={`transition-all duration-700 delay-300 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-      <div className="font-[family-name:var(--font-data)] text-[32px] md:text-[40px] font-medium text-[var(--color-gold)] tracking-[-0.02em] tabular-nums">
-        {value}
-      </div>
-      <div className="font-[family-name:var(--font-body)] text-[12px] uppercase tracking-[0.08em] text-[var(--color-haze)] mt-1">
-        {label}
-      </div>
-    </div>
-  );
-}
+import { useEffect, useState } from "react";
 
 export function Hero() {
-  const [visible, setVisible] = useState(false);
+  const [in_, setIn] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setVisible(true), 100);
+    const t = setTimeout(() => setIn(true), 120);
     return () => clearTimeout(t);
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
-      {/* Gradient mesh background */}
-      <div className="mesh-bg" />
+    <section
+      id="hero"
+      style={{
+        position: "relative",
+        minHeight: "100svh",
+        display: "flex",
+        alignItems: "center",
+        backgroundColor: "#1A2D50",
+        overflow: "hidden",
+      }}
+    >
+      {/* Video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center",
+        }}
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
 
-      <Container className="relative z-10">
-        {/* Headline */}
-        <h1
-          className={`font-[family-name:var(--font-display)] text-[56px] md:text-[72px] lg:text-[80px] leading-[1.04] text-[var(--color-parchment)] max-w-[720px] mb-6 transition-all duration-700 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
-        >
-          Build. Fund. Scale.
-        </h1>
+      {/* Dark overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(to right, rgba(26,45,80,0.92) 0%, rgba(26,45,80,0.75) 50%, rgba(26,45,80,0.4) 100%)",
+          pointerEvents: "none",
+        }}
+      />
 
-        {/* Sub-heading */}
-        <p
-          className={`font-[family-name:var(--font-body)] text-[18px] md:text-[20px] text-[var(--color-haze)] max-w-[600px] leading-[1.6] mb-10 transition-all duration-700 delay-150 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
-        >
-          A diversified platform for transaction advisory, capital deployment, and
-          technology infrastructure across emerging markets.
-        </p>
+      {/* Content — left aligned */}
+      <div
+        className="relative mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20"
+        style={{ paddingTop: "160px", paddingBottom: "clamp(80px, 10vh, 140px)" }}
+      >
+        <div style={{ maxWidth: "600px" }}>
+          <p
+            className="font-[family-name:var(--font-data)]"
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: "#2563EB",
+              marginBottom: "28px",
+              fontWeight: 500,
+              opacity: in_ ? 1 : 0,
+              transform: in_ ? "translateY(0)" : "translateY(8px)",
+              transition: "opacity 0.7s ease, transform 0.7s ease",
+            }}
+          >
+            Venti Primo Limited — Lagos, Nigeria
+          </p>
 
-        {/* CTA buttons */}
-        <div
-          className={`flex flex-col sm:flex-row gap-4 mb-16 transition-all duration-700 delay-200 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-          }`}
-        >
-          <Button href="#services" size="lg">
-            Explore Our Services
-          </Button>
-          <Button href="#contact" variant="secondary" size="lg">
-            Investor Enquiry
-          </Button>
+          <h1
+            className="font-[family-name:var(--font-display)]"
+            style={{
+              fontSize: "clamp(48px, 7vw, 80px)",
+              fontWeight: 700,
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              color: "#F0EBE3",
+              marginBottom: "32px",
+              opacity: in_ ? 1 : 0,
+              transform: in_ ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 0.7s ease 0.08s, transform 0.7s ease 0.08s",
+            }}
+          >
+            Build.<br />Fund.<br />Scale.
+          </h1>
+
+          <p
+            className="font-[family-name:var(--font-body)]"
+            style={{
+              fontSize: "15px",
+              lineHeight: 1.7,
+              color: "#A0B4C8",
+              maxWidth: "440px",
+              marginBottom: "48px",
+              opacity: in_ ? 1 : 0,
+              transform: in_ ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 0.7s ease 0.16s, transform 0.7s ease 0.16s",
+            }}
+          >
+            Transaction advisory, capital deployment, and technology
+            infrastructure across emerging markets.
+          </p>
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "12px",
+              opacity: in_ ? 1 : 0,
+              transform: in_ ? "translateY(0)" : "translateY(12px)",
+              transition: "opacity 0.7s ease 0.24s, transform 0.7s ease 0.24s",
+            }}
+          >
+            <a
+              href="#services"
+              className="font-[family-name:var(--font-body)]"
+              style={{
+                fontSize: "14px",
+                fontWeight: 500,
+                letterSpacing: "0.04em",
+                color: "#F0EBE3",
+                backgroundColor: "#2563EB",
+                padding: "14px 32px",
+                borderRadius: "9999px",
+                textDecoration: "none",
+                display: "inline-block",
+                transition: "background-color 0.2s ease",
+              }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#1D4ED8")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.backgroundColor = "#2563EB")}
+            >
+              Our Services
+            </a>
+            <a
+              href="#contact"
+              className="font-[family-name:var(--font-body)]"
+              style={{
+                fontSize: "14px",
+                fontWeight: 500,
+                letterSpacing: "0.04em",
+                color: "rgba(240,235,227,0.7)",
+                border: "1px solid rgba(240,235,227,0.2)",
+                padding: "14px 32px",
+                borderRadius: "9999px",
+                textDecoration: "none",
+                display: "inline-block",
+                transition: "border-color 0.2s ease, color 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "rgba(240,235,227,0.5)";
+                el.style.color = "#F0EBE3";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement;
+                el.style.borderColor = "rgba(240,235,227,0.2)";
+                el.style.color = "rgba(240,235,227,0.7)";
+              }}
+            >
+              Investor Enquiry
+            </a>
+          </div>
         </div>
-
-        {/* Stats bar */}
-        <div className="border-t border-[rgba(126,140,160,0.15)] pt-8 flex flex-col sm:flex-row gap-8 sm:gap-16">
-          {stats.map((s) => (
-            <AnimatedStat key={s.label} {...s} />
-          ))}
-        </div>
-      </Container>
+      </div>
     </section>
   );
 }

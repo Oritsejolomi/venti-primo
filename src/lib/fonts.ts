@@ -1,23 +1,16 @@
-import { Instrument_Serif, Outfit, IBM_Plex_Mono } from "next/font/google";
+import { Martian_Mono, Fira_Sans } from "next/font/google";
 
-export const instrumentSerif = Instrument_Serif({
+export const martianMono = Martian_Mono({
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  weight: ["400", "500", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-export const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-export const ibmPlexMono = IBM_Plex_Mono({
+export const firaSans = Fira_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-data",
+  style: ["normal", "italic"],
+  variable: "--font-body",
   display: "swap",
 });
