@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { martianMono, firaSans } from "@/lib/fonts";
+import { firaSans } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${martianMono.variable} ${firaSans.variable}`}
+      className={firaSans.variable}
     >
       <body>{children}</body>
     </html>
