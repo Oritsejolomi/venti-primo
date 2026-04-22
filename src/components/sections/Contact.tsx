@@ -29,7 +29,6 @@ function Field({
   placeholder?: string;
   required?: boolean;
 }) {
-  const [focused, setFocused] = useState(false);
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
       <label

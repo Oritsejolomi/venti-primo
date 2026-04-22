@@ -3,15 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "Sectors", href: "#sectors" },
-  { label: "Track Record", href: "#track-record" },
-  { label: "Insights", href: "/insights" },
-  { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" },
-];
-
 const COLS = [
   { t: "Platform", links: ["Services", "Sectors", "Track Record", "Insights", "Team"] },
   { t: "Company", links: ["About", "Careers", "Press", "Compliance"] },
@@ -66,11 +57,16 @@ export function Footer() {
               Diversified investment holding company. Lagos, Nigeria.
             </p>
             <div style={{ display: "flex", gap: "12px" }}>
-              {["linkedin", "twitter"].map((s) => (
+              {[
+                { id: "linkedin", url: "https://linkedin.com" },
+                { id: "twitter", url: "https://x.com" },
+              ].map((s) => (
                 <a
-                  key={s}
-                  href="#"
-                  aria-label={s}
+                  key={s.id}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.id}
                   style={{
                     width: 38,
                     height: 38,
@@ -95,7 +91,7 @@ export function Footer() {
                     (e.currentTarget as HTMLElement).style.borderColor = "rgba(240,235,227,0.14)";
                   }}
                 >
-                  {s === "linkedin" ? "in" : "𝕏"}
+                  {s.id === "linkedin" ? "in" : "𝕏"}
                 </a>
               ))}
             </div>

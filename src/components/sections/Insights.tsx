@@ -7,6 +7,7 @@ const ARTICLES = [
   {
     date: "Apr 2026",
     category: "Market Commentary",
+    readTime: "6 min",
     title: "Nigeria Macro Outlook: Q2 2026",
     excerpt: "Sector outlook and FX developments for institutional allocators with exposure to Nigerian assets.",
     href: "/insights/nigeria-macro-q2-2026",
@@ -15,6 +16,7 @@ const ARTICLES = [
   {
     date: "Mar 2026",
     category: "Technology Briefings",
+    readTime: "8 min",
     title: "Network Infrastructure as an Asset Class in West Africa",
     excerpt: "Why tower companies, fibre networks, and data centres are becoming the preferred infrastructure play.",
     href: "/insights/network-infrastructure-west-africa",
@@ -23,6 +25,7 @@ const ARTICLES = [
   {
     date: "Mar 2026",
     category: "Deal Insights",
+    readTime: "5 min",
     title: "Transaction Structures Explained: Upstream Advisory",
     excerpt: "An anonymised walkthrough of a deal structure from mandate origination through to financial close.",
     href: "/insights/transaction-structures-upstream",
@@ -104,7 +107,7 @@ function PostCard({ article, first }: { article: (typeof ARTICLES)[0]; first: bo
         }}
       >
         <span className="font-[family-name:var(--font-display)]" style={{ fontSize: "10px", letterSpacing: "0.14em", textTransform: "uppercase", color: "#8896A8" }}>
-          {first ? "6 min" : "5 min"} read
+          {article.readTime} read
         </span>
         <span
           className="font-[family-name:var(--font-display)]"
