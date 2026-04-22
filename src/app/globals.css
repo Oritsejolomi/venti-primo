@@ -9,9 +9,33 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Cardo';
+  src: url('/fonts/Cardo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cardo';
+  src: url('/fonts/Cardo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cardo';
+  src: url('/fonts/Cardo-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 @theme {
   /* ── Fonts ── */
-  --font-display: "Martian Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-display: "Cardo", "Iowan Old Style", "Apple Garamond", Georgia, "Times New Roman", serif;
   --font-body: "Fira Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-data: "Martian Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
@@ -49,6 +73,39 @@
   --color-success: #4A9B6E;
   --color-warning: #D49A3C;
   --color-error: #B84242;
+
+  /* ── Type scale (Perfect Fourth · 1.333) ── */
+  --text-caption: 0.75rem;       /* 12px — data labels */
+  --text-small: 0.875rem;        /* 14px — meta */
+  --text-body: 1rem;              /* 16px — base */
+  --text-lead: clamp(1.0625rem, 0.9rem + 0.5vw, 1.1875rem);  /* 17→19px — body lead */
+  --text-h4: clamp(1.3125rem, 1.1rem + 0.7vw, 1.5rem);        /* 21→24px */
+  --text-h3: clamp(1.75rem, 1.4rem + 1.2vw, 2.125rem);        /* 28→34px */
+  --text-h2: clamp(2.375rem, 1.8rem + 2.4vw, 3.125rem);       /* 38→50px */
+  --text-h1: clamp(3rem, 2rem + 4.5vw, 4.1875rem);            /* 48→67px */
+  --text-display-sm: clamp(3.75rem, 2.5rem + 6vw, 5.5625rem);  /* 60→89px */
+  --text-display: clamp(4.5rem, 3rem + 8vw, 7.4375rem);        /* 72→119px */
+  --text-display-lg: clamp(5.5rem, 3.5rem + 12vw, 9.875rem);   /* 88→158px */
+  --text-mega: clamp(6rem, 4rem + 18vw, 17.5rem);              /* 96→280px (footer) */
+
+  /* ── Spacing scale (8pt base) ── */
+  --space-1: 0.25rem;   /* 4 */
+  --space-2: 0.5rem;    /* 8 */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.5rem;    /* 24 */
+  --space-6: 2rem;      /* 32 */
+  --space-7: 3rem;      /* 48 */
+  --space-8: 4rem;      /* 64 */
+  --space-9: 6rem;      /* 96 */
+  --space-10: 8rem;     /* 128 */
+  --space-11: 10rem;    /* 160 */
+  --space-12: 14rem;    /* 224 */
+
+  /* ── Section vertical rhythm (responsive) ── */
+  --section-py: clamp(3rem, 7vh, 7rem);      /* 48→112 */
+  --section-gap: clamp(2rem, 4vw, 5rem);     /* 32→80 inner gap */
+  --container-px: clamp(1.25rem, 4vw, 6rem); /* 20→96 horizontal pad */
 }
 
 /* ── Base ── */
@@ -95,10 +152,8 @@ body {
 }
 
 /* ── Scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-midnight); }
-::-webkit-scrollbar-thumb { background: var(--color-dusk); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-slate); }
+html { scrollbar-width: none; }
+::-webkit-scrollbar { display: none; }
 
 /* ── Selection ── */
 ::selection {

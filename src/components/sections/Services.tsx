@@ -5,178 +5,293 @@ import { useState } from "react";
 const SERVICES = [
   {
     n: "01",
-    title: "Deal Origination & Transaction Advisory",
+    title: "Deal Origination",
+    sub: "Transaction Advisory",
     body: "Sourcing, structuring, and executing investment transactions across energy, infrastructure, and capital markets.",
-    points: ["Sell-side mandates", "Buy-side advisory", "Special situations"],
+    image:
+      "https://images.unsplash.com/photo-1554224155-1696413565d3?w=1200&q=85&auto=format&fit=crop",
+    alt: "Financial documents and ledger close-up",
   },
   {
     n: "02",
-    title: "Capital Raising & Investor Access",
-    body: "Connecting enterprises to institutional offshore capital through bespoke fundraising mandates.",
-    points: ["Syndicated facilities", "Private placements", "Sovereign counterparties"],
+    title: "Capital Raising",
+    sub: "Investor Access",
+    body: "Connecting enterprises to institutional offshore capital through bespoke fundraising mandates and syndicated facilities.",
+    image:
+      "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=85&auto=format&fit=crop",
+    alt: "Stacked institutional documents",
   },
   {
     n: "03",
-    title: "Technology Infrastructure",
+    title: "Network Infrastructure",
+    sub: "Technology Platforms",
     body: "Network design, deployment, and management for enterprises and institutions across emerging markets.",
-    points: ["Network architecture", "Data centre advisory", "Enterprise connectivity"],
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=85&auto=format&fit=crop",
+    alt: "Data centre fibre network detail",
   },
   {
     n: "04",
-    title: "Private Wealth Management",
+    title: "Private Wealth",
+    sub: "Discretionary Mandates",
     body: "Bespoke investment solutions and portfolio advisory for high-net-worth individuals and family offices.",
-    points: ["Discretionary mandates", "Family office advisory", "Diaspora portfolios"],
+    image:
+      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=85&auto=format&fit=crop",
+    alt: "Private banking environment",
   },
 ];
 
-function ServiceCard({ n, title, body, points }: (typeof SERVICES)[0]) {
-  const [hover, setHover] = useState(false);
+export function Services() {
+  const [active, setActive] = useState(0);
+  const current = SERVICES[active];
+
   return (
-    <div
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+    <section
+      id="services"
+      data-theme="dark"
       style={{
+        minHeight: "100vh",
+        backgroundColor: "#0A2623",
+        color: "#F0EBE3",
         position: "relative",
-        padding: "48px 40px",
-        borderRight: "1px solid rgba(240,235,227,0.10)",
-        borderBottom: "1px solid rgba(240,235,227,0.10)",
-        transition: "background 180ms cubic-bezier(0.2,0.7,0.2,1)",
-        background: hover ? "rgba(13,148,136,0.05)" : "transparent",
-        minHeight: "340px",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-        <span
-          className="font-[family-name:var(--font-display)]"
-          style={{
-            fontSize: "11px",
-            letterSpacing: "0.22em",
-            color: hover ? "#0D9488" : "#8896A8",
-            transition: "color 180ms",
-          }}
-        >
-          / {n}
-        </span>
-        <span
-          style={{
-            width: "20px",
-            height: "20px",
-            color: hover ? "#0D9488" : "#8896A8",
-            transition: "color 180ms",
-            fontSize: "18px",
-            lineHeight: 1,
-          }}
-        >
-          ◈
-        </span>
-      </div>
-
-      <h3
-        className="font-[family-name:var(--font-display)]"
-        style={{
-          marginTop: "40px",
-          fontWeight: 500,
-          fontSize: "clamp(17px,1.8vw,22px)",
-          lineHeight: 1.25,
-          letterSpacing: "-0.01em",
-          color: "#F0EBE3",
-        }}
-      >
-        {title}
-      </h3>
-
-      <p
-        className="font-[family-name:var(--font-body)]"
-        style={{ marginTop: "16px", fontSize: "14px", lineHeight: 1.65, color: "rgba(240,235,227,0.7)" }}
-      >
-        {body}
-      </p>
-
-      <div style={{ marginTop: "28px", display: "flex", flexDirection: "column", gap: "6px" }}>
-        {points.map((p) => (
-          <div
-            key={p}
-            className="font-[family-name:var(--font-display)]"
-            style={{ fontSize: "11px", letterSpacing: "0.08em", color: "#8896A8", display: "inline-flex", alignItems: "center", gap: "10px" }}
-          >
-            <span style={{ width: "4px", height: "4px", background: "#0D9488", borderRadius: "1px", flexShrink: 0 }} />
-            {p.toUpperCase()}
-          </div>
-        ))}
-      </div>
-
       <div
-        className="font-[family-name:var(--font-display)]"
+        className="mx-auto w-full max-w-[1440px]"
         style={{
-          position: "absolute",
-          right: "40px",
-          bottom: "40px",
-          fontSize: "11px",
-          letterSpacing: "0.08em",
-          color: hover ? "#0D9488" : "#8896A8",
-          textTransform: "uppercase",
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "8px",
-          transition: "color 180ms, transform 180ms",
-          transform: hover ? "translateX(4px)" : "none",
+          paddingLeft: "var(--container-px)",
+          paddingRight: "var(--container-px)",
+          paddingTop: "var(--section-py)",
+          paddingBottom: "var(--section-py)",
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        Brief →
-      </div>
-    </div>
-  );
-}
-
-export function Services() {
-  return (
-    <section id="services" style={{ backgroundColor: "#2D4850", padding: "clamp(96px,12vw,180px) 0" }}>
-      <div className="mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20">
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: "48px", flexWrap: "wrap", marginBottom: "72px" }}>
-          <div>
-            <div
-              className="font-[family-name:var(--font-display)]"
-              style={{
-                fontSize: "10px",
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: "#8896A8",
-                display: "flex",
-                alignItems: "center",
-                gap: "12px",
-                marginBottom: "28px",
-              }}
-            >
-              <span style={{ width: "24px", height: "1px", background: "#0D9488", flexShrink: 0 }} />
-              § 03 — What we do
-            </div>
-            <h2
-              className="font-[family-name:var(--font-display)]"
-              style={{ fontSize: "clamp(32px,4.5vw,56px)", fontWeight: 500, lineHeight: 1.08, letterSpacing: "-0.02em", color: "#F0EBE3", maxWidth: "600px" }}
-            >
-              Four practices. One platform.
-            </h2>
-          </div>
-          <p
-            className="font-[family-name:var(--font-body)]"
-            style={{ fontSize: "15px", lineHeight: 1.65, color: "rgba(240,235,227,0.7)", maxWidth: "360px" }}
-          >
-            Execution, precision, access, conviction — applied across every mandate we accept.
-          </p>
+        <div
+          className="font-[family-name:var(--font-data)]"
+          style={{
+            fontSize: "var(--text-caption)",
+            letterSpacing: "0.28em",
+            textTransform: "uppercase",
+            color: "rgba(240,235,227,0.5)",
+            marginBottom: "var(--space-5)",
+          }}
+        >
+          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(240,235,227,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
+          § 03 — What we do
         </div>
 
-        <div
+        <h2
+          className="font-[family-name:var(--font-display)]"
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            borderTop: "1px solid rgba(240,235,227,0.10)",
-            borderLeft: "1px solid rgba(240,235,227,0.10)",
+            fontSize: "var(--text-display-sm)",
+            fontWeight: 400,
+            lineHeight: 0.96,
+            letterSpacing: "-0.025em",
+            color: "#F0EBE3",
+            marginBottom: "var(--space-7)",
+            maxWidth: "1100px",
           }}
-          className="grid-cols-1 md:!grid-cols-2"
         >
-          {SERVICES.map((s) => (
-            <ServiceCard key={s.n} {...s} />
-          ))}
+          Four practices.
+          <br />
+          <em style={{ fontStyle: "italic", fontWeight: 400 }}>One platform.</em>
+        </h2>
+
+        {/* main split: image left, list right */}
+        <div
+          className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] items-stretch flex-1"
+          style={{ gap: "var(--section-gap)" }}
+        >
+          {/* Focal image — desktop only */}
+          <div
+            className="hidden lg:block"
+            style={{
+              position: "relative",
+              aspectRatio: "3/4",
+              maxHeight: "640px",
+              overflow: "hidden",
+              borderRadius: "2px",
+              backgroundColor: "#134E4A",
+            }}
+          >
+            {SERVICES.map((s, i) => (
+              <img
+                key={s.n}
+                src={s.image}
+                alt={s.alt}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  filter: "saturate(0.85) contrast(1.05)",
+                  opacity: i === active ? 1 : 0,
+                  transition: "opacity 500ms ease",
+                }}
+              />
+            ))}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(180deg, rgba(10,38,35,0.15) 0%, rgba(10,38,35,0.55) 100%)",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                left: 0,
+                right: 0,
+                bottom: 0,
+                padding: "32px",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-end",
+              }}
+            >
+              <div
+                className="font-[family-name:var(--font-data)]"
+                style={{ fontSize: "11px", letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(240,235,227,0.85)" }}
+              >
+                / {current.n}
+              </div>
+              <div
+                className="font-[family-name:var(--font-data)]"
+                style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(240,235,227,0.55)" }}
+              >
+                {current.sub}
+              </div>
+            </div>
+          </div>
+
+          {/* List */}
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            {SERVICES.map((s, i) => {
+              const isActive = i === active;
+              return (
+                <div key={s.n}>
+                  <button
+                    onMouseEnter={() => setActive(i)}
+                    onFocus={() => setActive(i)}
+                    onClick={() => setActive(i)}
+                    style={{
+                      appearance: "none",
+                      background: "transparent",
+                      border: "none",
+                      textAlign: "left",
+                      cursor: "pointer",
+                      width: "100%",
+                      paddingTop: "var(--space-5)",
+                      paddingBottom: "var(--space-5)",
+                      paddingRight: "0px",
+                      paddingLeft: isActive ? "16px" : "0px",
+                      borderTop: i === 0 ? "1px solid rgba(240,235,227,0.12)" : "none",
+                      borderBottom: "1px solid rgba(240,235,227,0.12)",
+                      color: "inherit",
+                      display: "grid",
+                      gridTemplateColumns: "44px 1fr auto",
+                      gap: "var(--space-5)",
+                      alignItems: "center",
+                      transition: "padding-left 280ms ease",
+                    }}
+                  >
+                    <span
+                      className="font-[family-name:var(--font-data)]"
+                      style={{
+                        fontSize: "var(--text-caption)",
+                        letterSpacing: "0.28em",
+                        color: isActive ? "#5EEAD4" : "rgba(240,235,227,0.4)",
+                        transition: "color 280ms ease",
+                      }}
+                    >
+                      {s.n}
+                    </span>
+                    <span
+                      className="font-[family-name:var(--font-display)]"
+                      style={{
+                        fontSize: "var(--text-h3)",
+                        fontWeight: 400,
+                        lineHeight: 1.1,
+                        letterSpacing: "-0.02em",
+                        color: isActive ? "#F0EBE3" : "rgba(240,235,227,0.55)",
+                        transition: "color 280ms ease",
+                      }}
+                    >
+                      {s.title}
+                    </span>
+                    <span
+                      className="font-[family-name:var(--font-display)]"
+                      style={{
+                        fontSize: "var(--text-h4)",
+                        color: isActive ? "#5EEAD4" : "rgba(240,235,227,0.3)",
+                        transition: "color 280ms ease, transform 280ms ease",
+                        transform: isActive ? "translateX(4px)" : "none",
+                      }}
+                    >
+                      →
+                    </span>
+                  </button>
+                  {/* Image + body inline — mobile only */}
+                  <div
+                    className="lg:hidden"
+                    style={{
+                      overflow: "hidden",
+                      maxHeight: isActive ? "340px" : "0px",
+                      opacity: isActive ? 1 : 0,
+                      transition: "max-height 400ms ease, opacity 280ms ease",
+                    }}
+                  >
+                    <div style={{ position: "relative", height: "180px", overflow: "hidden", borderRadius: "2px", margin: "0 0 var(--space-4) 0" }}>
+                      <img
+                        src={s.image}
+                        alt={s.alt}
+                        style={{ width: "100%", height: "100%", objectFit: "cover", filter: "saturate(0.85) contrast(1.05)" }}
+                      />
+                      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(10,38,35,0.05) 0%, rgba(10,38,35,0.5) 100%)" }} />
+                      <div
+                        className="font-[family-name:var(--font-data)]"
+                        style={{ position: "absolute", bottom: "14px", left: "16px", right: "16px", fontSize: "10px", letterSpacing: "0.24em", textTransform: "uppercase", color: "rgba(240,235,227,0.75)", display: "flex", justifyContent: "space-between" }}
+                      >
+                        <span>/ {s.n}</span>
+                        <span>{s.sub}</span>
+                      </div>
+                    </div>
+                    <p
+                      className="font-[family-name:var(--font-body)]"
+                      style={{
+                        padding: "0 0 var(--space-5) 0",
+                        fontSize: "var(--text-small)",
+                        lineHeight: 1.65,
+                        color: "rgba(240,235,227,0.65)",
+                      }}
+                    >
+                      {s.body}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Body text — desktop only, below list */}
+            <p
+              className="hidden lg:block font-[family-name:var(--font-body)]"
+              style={{
+                marginTop: "var(--space-7)",
+                fontSize: "var(--text-lead)",
+                lineHeight: 1.65,
+                color: "rgba(240,235,227,0.72)",
+                maxWidth: "520px",
+                minHeight: "112px",
+              }}
+            >
+              {current.body}
+            </p>
+          </div>
         </div>
       </div>
     </section>

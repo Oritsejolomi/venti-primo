@@ -2,20 +2,29 @@
 
 import { useState } from "react";
 
-const TYPES = ["General Enquiry", "Investment Opportunity", "Capital Raising", "Technology Services", "Private Wealth", "NDA Request", "Media"];
+const TYPES = [
+  "General Enquiry",
+  "Investment Opportunity",
+  "Capital Raising",
+  "Technology Services",
+  "Private Wealth",
+  "NDA Request",
+  "Media",
+];
 
 const inputBase: React.CSSProperties = {
   width: "100%",
-  background: "#1F3640",
-  border: "1px solid rgba(240,235,227,0.12)",
-  borderRadius: "8px",
-  padding: "14px 14px",
-  color: "#F0EBE3",
+  background: "transparent",
+  border: "none",
+  borderBottom: "1px solid rgba(10,38,35,0.2)",
+  padding: "14px 0",
+  color: "#0A2623",
   fontFamily: "var(--font-body)",
-  fontSize: "14px",
+  fontSize: "16px",
   outline: "none",
-  transition: "border-color 180ms, box-shadow 180ms",
+  transition: "border-color 200ms ease",
   boxSizing: "border-box",
+  borderRadius: 0,
 };
 
 function Field({
@@ -30,10 +39,15 @@ function Field({
   required?: boolean;
 }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
       <label
-        className="font-[family-name:var(--font-display)]"
-        style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#8896A8" }}
+        className="font-[family-name:var(--font-data)]"
+        style={{
+          fontSize: "10px",
+          letterSpacing: "0.22em",
+          textTransform: "uppercase",
+          color: "rgba(10,38,35,0.55)",
+        }}
       >
         {label}
       </label>
@@ -42,15 +56,13 @@ function Field({
         required={required}
         placeholder={placeholder}
         onFocus={(e) => {
-          e.currentTarget.style.borderColor = "#0D9488";
-          e.currentTarget.style.boxShadow = "0 0 0 3px rgba(13,148,136,0.22)";
+          e.currentTarget.style.borderColor = "#0A2623";
         }}
         onBlur={(e) => {
-          e.currentTarget.style.borderColor = "rgba(240,235,227,0.12)";
-          e.currentTarget.style.boxShadow = "none";
+          e.currentTarget.style.borderColor = "rgba(10,38,35,0.2)";
         }}
         style={inputBase}
-        className="placeholder:text-[rgba(240,235,227,0.2)] font-[family-name:var(--font-body)]"
+        className="placeholder:text-[rgba(10,38,35,0.3)] font-[family-name:var(--font-body)]"
       />
     </div>
   );
@@ -70,108 +82,232 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" style={{ backgroundColor: "#1A1F2E", padding: "clamp(96px,12vw,180px) 0", position: "relative" }}>
-      <div className="mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20">
+    <section
+      id="contact"
+      data-theme="light"
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#F0EBE3",
+        color: "#0A2623",
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        className="mx-auto w-full max-w-[1440px]"
+        style={{
+          paddingLeft: "var(--container-px)",
+          paddingRight: "var(--container-px)",
+          paddingTop: "var(--section-py)",
+          paddingBottom: "var(--section-py)",
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <div
-          style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: "clamp(48px,8vw,120px)", alignItems: "start" }}
-          className="grid-cols-1 lg:!grid-cols-[1fr_1.2fr]"
+          className="font-[family-name:var(--font-data)]"
+          style={{
+            fontSize: "var(--text-caption)",
+            letterSpacing: "0.28em",
+            textTransform: "uppercase",
+            color: "rgba(10,38,35,0.5)",
+            marginBottom: "var(--space-7)",
+          }}
         >
-          {/* Left */}
+          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(10,38,35,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
+          § 08 — Get in touch
+        </div>
+
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 items-start flex-1"
+          style={{
+            gap: "var(--section-gap)",
+          }}
+        >
+          {/* Left — editorial copy */}
           <div>
-            <div
-              className="font-[family-name:var(--font-display)]"
-              style={{
-                fontSize: "10px",
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: "#8896A8",
-                display: "flex",
-                alignItems: "center",
-                gap: "12px",
-                marginBottom: "28px",
-              }}
-            >
-              <span style={{ width: "24px", height: "1px", background: "#0D9488", flexShrink: 0 }} />
-              § 08 — Get in touch
-            </div>
             <h2
               className="font-[family-name:var(--font-display)]"
-              style={{ fontSize: "clamp(40px,5.5vw,72px)", fontWeight: 500, lineHeight: 1.05, letterSpacing: "-0.02em", color: "#F0EBE3", marginBottom: "32px" }}
+              style={{
+                fontSize: "var(--text-display)",
+                fontWeight: 400,
+                lineHeight: 0.95,
+                letterSpacing: "-0.03em",
+                color: "#0A2623",
+                marginBottom: "var(--space-7)",
+              }}
             >
-              Let&apos;s talk.
+              Let&apos;s
+              <br />
+              <em style={{ fontStyle: "italic", fontWeight: 400 }}>talk.</em>
             </h2>
+
             <p
               className="font-[family-name:var(--font-body)]"
-              style={{ fontSize: "15px", lineHeight: 1.7, color: "rgba(240,235,227,0.7)", maxWidth: "380px", marginBottom: "64px" }}
+              style={{
+                fontSize: "clamp(16px, 1.35vw, 19px)",
+                lineHeight: 1.6,
+                color: "rgba(10,38,35,0.72)",
+                maxWidth: "480px",
+                marginBottom: "64px",
+              }}
             >
-              Mandates, investor enquiries, NDAs, and press. We respond to credible approaches within two working days.
+              Mandates, investor enquiries, NDAs, and press. We respond to
+              credible approaches within two working days.
             </p>
 
-            <div style={{ paddingTop: "32px", borderTop: "1px solid rgba(240,235,227,0.12)", display: "flex", flexDirection: "column", gap: "20px" }}>
+            <div
+              style={{
+                paddingTop: "32px",
+                borderTop: "1px solid rgba(10,38,35,0.14)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "28px",
+              }}
+            >
               {[
-                { label: "Office", value: "Venti Primo Limited", sub: "Lagos, Nigeria" },
-                { label: "Email", value: "info@ventiprimo.com", href: "mailto:info@ventiprimo.com" },
-                { label: "Hours", value: "Mon–Fri · 08:00–18:00 WAT" },
+                { k: "Office", v: "Venti Primo Limited", sub: "Lagos, Nigeria" },
+                { k: "Email", v: "info@ventiprimo.com", href: "mailto:info@ventiprimo.com" },
+                { k: "Hours", v: "Mon–Fri · 08:00–18:00 WAT" },
               ].map((m) => (
-                <div key={m.label} style={{ display: "grid", gridTemplateColumns: "100px 1fr", gap: "24px", alignItems: "baseline" }}>
-                  <div className="font-[family-name:var(--font-display)]" style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#8896A8" }}>
-                    {m.label}
+                <div
+                  key={m.k}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "120px 1fr",
+                    gap: "24px",
+                    alignItems: "baseline",
+                  }}
+                >
+                  <div
+                    className="font-[family-name:var(--font-data)]"
+                    style={{
+                      fontSize: "10px",
+                      letterSpacing: "0.22em",
+                      textTransform: "uppercase",
+                      color: "rgba(10,38,35,0.55)",
+                    }}
+                  >
+                    {m.k}
                   </div>
                   <div>
                     {m.href ? (
-                      <a href={m.href} className="font-[family-name:var(--font-body)]" style={{ fontSize: "15px", color: "#F0EBE3", textDecoration: "none", borderBottom: "1px solid rgba(240,235,227,0.24)" }}>
-                        {m.value}
+                      <a
+                        href={m.href}
+                        className="font-[family-name:var(--font-display)]"
+                        style={{
+                          fontSize: "20px",
+                          color: "#0A2623",
+                          textDecoration: "none",
+                          borderBottom: "1px solid rgba(10,38,35,0.3)",
+                          letterSpacing: "-0.01em",
+                        }}
+                      >
+                        {m.v}
                       </a>
                     ) : (
-                      <div className="font-[family-name:var(--font-body)]" style={{ fontSize: "15px", color: "#F0EBE3" }}>{m.value}</div>
+                      <div
+                        className="font-[family-name:var(--font-display)]"
+                        style={{
+                          fontSize: "20px",
+                          color: "#0A2623",
+                          letterSpacing: "-0.01em",
+                        }}
+                      >
+                        {m.v}
+                      </div>
                     )}
-                    {m.sub && <div className="font-[family-name:var(--font-body)]" style={{ marginTop: "4px", fontSize: "13px", color: "#8896A8" }}>{m.sub}</div>}
+                    {m.sub && (
+                      <div
+                        className="font-[family-name:var(--font-body)]"
+                        style={{
+                          marginTop: "4px",
+                          fontSize: "14px",
+                          color: "rgba(10,38,35,0.55)",
+                        }}
+                      >
+                        {m.sub}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right — form */}
+          {/* Right — minimal form, line-only inputs */}
           <form
             onSubmit={submit}
             style={{
-              background: "#25404A",
-              border: "1px solid rgba(240,235,227,0.12)",
-              borderRadius: "12px",
-              padding: "40px",
               display: "flex",
               flexDirection: "column",
-              gap: "20px",
+              gap: "32px",
             }}
           >
             {done ? (
-              <div style={{ padding: "32px 0", textAlign: "center" }}>
-                <div style={{
-                  width: "48px", height: "48px", borderRadius: "999px",
-                  background: "rgba(74,155,110,0.18)", border: "1px solid rgba(74,155,110,0.4)",
-                  margin: "0 auto 24px", display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: "20px",
-                }}>
-                  ✓
+              <div
+                style={{
+                  padding: "48px 0",
+                  borderTop: "1px solid rgba(10,38,35,0.14)",
+                  borderBottom: "1px solid rgba(10,38,35,0.14)",
+                }}
+              >
+                <div
+                  className="font-[family-name:var(--font-data)]"
+                  style={{
+                    fontSize: "10px",
+                    letterSpacing: "0.22em",
+                    textTransform: "uppercase",
+                    color: "#0D9488",
+                    marginBottom: "20px",
+                  }}
+                >
+                  Message received
                 </div>
-                <div className="font-[family-name:var(--font-display)]" style={{ fontSize: "20px", fontWeight: 500, color: "#F0EBE3", marginBottom: "12px" }}>
-                  Message received.
+                <div
+                  className="font-[family-name:var(--font-display)]"
+                  style={{
+                    fontSize: "clamp(28px, 3vw, 40px)",
+                    fontWeight: 400,
+                    lineHeight: 1.1,
+                    color: "#0A2623",
+                    marginBottom: "16px",
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  <em style={{ fontStyle: "italic" }}>Thank you.</em>
                 </div>
-                <div className="font-[family-name:var(--font-body)]" style={{ fontSize: "14px", color: "#8896A8", lineHeight: 1.7 }}>
+                <div
+                  className="font-[family-name:var(--font-body)]"
+                  style={{ fontSize: "16px", color: "rgba(10,38,35,0.65)", lineHeight: 1.6 }}
+                >
                   We&apos;ll respond to your enquiry within two working days.
                 </div>
               </div>
             ) : (
               <>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }} className="grid-cols-1 sm:!grid-cols-2">
-                  <Field label="Name *" required placeholder="Your name" />
-                  <Field label="Email *" type="email" required placeholder="you@company.com" />
+                <div
+                  className="grid grid-cols-1 sm:grid-cols-2"
+                  style={{ gap: "var(--space-6)" }}
+                >
+                  <Field label="Name" required placeholder="Your name" />
+                  <Field label="Email" type="email" required placeholder="you@company.com" />
                 </div>
+
                 <Field label="Organisation" placeholder="Optional" />
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                  <label className="font-[family-name:var(--font-display)]" style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#8896A8" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <label
+                    className="font-[family-name:var(--font-data)]"
+                    style={{
+                      fontSize: "10px",
+                      letterSpacing: "0.22em",
+                      textTransform: "uppercase",
+                      color: "rgba(10,38,35,0.55)",
+                    }}
+                  >
                     Enquiry Type
                   </label>
                   <select
@@ -180,73 +316,75 @@ export function Contact() {
                     style={{ ...inputBase, appearance: "none", cursor: "pointer" }}
                     className="font-[family-name:var(--font-body)]"
                     onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "#0D9488";
-                      e.currentTarget.style.boxShadow = "0 0 0 3px rgba(13,148,136,0.22)";
+                      e.currentTarget.style.borderColor = "#0A2623";
                     }}
                     onBlur={(e) => {
-                      e.currentTarget.style.borderColor = "rgba(240,235,227,0.12)";
-                      e.currentTarget.style.boxShadow = "none";
+                      e.currentTarget.style.borderColor = "rgba(10,38,35,0.2)";
                     }}
                   >
-                    {TYPES.map((t) => <option key={t} value={t} style={{ background: "#1F3640" }}>{t}</option>)}
+                    {TYPES.map((t) => (
+                      <option key={t} value={t} style={{ background: "#F0EBE3", color: "#0A2623" }}>
+                        {t}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                  <label className="font-[family-name:var(--font-display)]" style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#8896A8" }}>
-                    Message *
+                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                  <label
+                    className="font-[family-name:var(--font-data)]"
+                    style={{
+                      fontSize: "10px",
+                      letterSpacing: "0.22em",
+                      textTransform: "uppercase",
+                      color: "rgba(10,38,35,0.55)",
+                    }}
+                  >
+                    Message
                   </label>
                   <textarea
-                    rows={5}
+                    rows={4}
                     required
                     placeholder="Tell us about your enquiry..."
                     style={{ ...inputBase, resize: "vertical", lineHeight: 1.6 }}
-                    className="placeholder:text-[rgba(240,235,227,0.2)] font-[family-name:var(--font-body)]"
+                    className="placeholder:text-[rgba(10,38,35,0.3)] font-[family-name:var(--font-body)]"
                     onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "#0D9488";
-                      e.currentTarget.style.boxShadow = "0 0 0 3px rgba(13,148,136,0.22)";
+                      e.currentTarget.style.borderColor = "#0A2623";
                     }}
                     onBlur={(e) => {
-                      e.currentTarget.style.borderColor = "rgba(240,235,227,0.12)";
-                      e.currentTarget.style.boxShadow = "none";
+                      e.currentTarget.style.borderColor = "rgba(10,38,35,0.2)";
                     }}
                   />
                 </div>
 
-                <label style={{ display: "flex", alignItems: "center", gap: "10px", cursor: "pointer" }}>
-                  <input type="checkbox" style={{ accentColor: "#0D9488", width: "16px", height: "16px", cursor: "pointer", flexShrink: 0 }} />
-                  <span className="font-[family-name:var(--font-body)]" style={{ fontSize: "13px", color: "rgba(240,235,227,0.65)" }}>
-                    Subscribe to Venti Primo Insights
-                  </span>
-                </label>
-
-                <button
-                  type="submit"
-                  disabled={busy}
-                  className="font-[family-name:var(--font-body)]"
-                  style={{
-                    marginTop: "8px",
-                    padding: "16px 28px",
-                    borderRadius: "8px",
-                    border: "none",
-                    background: busy ? "#0F766E" : "#0D9488",
-                    color: "#1A1F2E",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    letterSpacing: "0.04em",
-                    cursor: busy ? "not-allowed" : "pointer",
-                    opacity: busy ? 0.7 : 1,
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "10px",
-                    transition: "background 180ms",
-                  }}
-                  onMouseEnter={(e) => { if (!busy) (e.currentTarget as HTMLElement).style.background = "#99F6E4"; }}
-                  onMouseLeave={(e) => { if (!busy) (e.currentTarget as HTMLElement).style.background = "#0D9488"; }}
-                >
-                  {busy ? "Sending…" : "Send Message →"}
-                </button>
+                <div style={{ marginTop: "16px" }}>
+                  <button
+                    type="submit"
+                    disabled={busy}
+                    className="font-[family-name:var(--font-body)]"
+                    style={{
+                      padding: "16px 36px",
+                      borderRadius: "9999px",
+                      border: "none",
+                      background: busy ? "#134E4A" : "#0A2623",
+                      color: "#F0EBE3",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      letterSpacing: "0.04em",
+                      cursor: busy ? "not-allowed" : "pointer",
+                      opacity: busy ? 0.7 : 1,
+                      transition: "background 200ms ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!busy) (e.currentTarget as HTMLElement).style.background = "#134E4A";
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!busy) (e.currentTarget as HTMLElement).style.background = "#0A2623";
+                    }}
+                  >
+                    {busy ? "Sending…" : "Send Message →"}
+                  </button>
+                </div>
               </>
             )}
           </form>

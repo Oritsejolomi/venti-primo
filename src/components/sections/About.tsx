@@ -1,96 +1,184 @@
+"use client";
+
 export function About() {
   return (
-    <section id="about" style={{ backgroundColor: "#253C43", padding: "clamp(96px,12vw,180px) 0" }}>
-      <div className="mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20">
+    <section
+      id="about"
+      data-theme="light"
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#F7F5F0",
+        color: "#0A2623",
+        display: "flex",
+        flexDirection: "column",
+        position: "relative",
+      }}
+    >
+      <div
+        className="mx-auto w-full max-w-[1440px]"
+        style={{
+          paddingLeft: "var(--container-px)",
+          paddingRight: "var(--container-px)",
+          paddingTop: "var(--section-py)",
+          paddingBottom: "var(--section-py)",
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        {/* eyebrow */}
         <div
-          style={{ display: "grid", gridTemplateColumns: "280px minmax(0,1fr)", gap: "80px", alignItems: "start" }}
-          className="grid-cols-1 lg:!grid-cols-[280px_minmax(0,1fr)]"
+          className="font-[family-name:var(--font-data)]"
+          style={{
+            fontSize: "var(--text-caption)",
+            letterSpacing: "0.28em",
+            textTransform: "uppercase",
+            color: "rgba(10,38,35,0.5)",
+            marginBottom: "var(--space-9)",
+          }}
         >
-          {/* Left sidebar */}
-          <div>
-            <div
-              className="font-[family-name:var(--font-display)]"
-              style={{
-                fontSize: "10px",
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: "#8896A8",
-                display: "flex",
-                alignItems: "center",
-                gap: "12px",
-                marginBottom: "40px",
-              }}
-            >
-              <span style={{ width: "24px", height: "1px", background: "#0D9488", flexShrink: 0 }} />
-              § 02 — Who we are
-            </div>
-            <div
-              className="font-[family-name:var(--font-display)]"
-              style={{ fontSize: "11px", letterSpacing: "0.04em", color: "#8896A8", lineHeight: 1.9 }}
-            >
-              <div>FILING / VP-LAG-001</div>
-              <div>DATE / APR 2026</div>
-              <div>ISSUER / VENTI PRIMO LTD</div>
-            </div>
-          </div>
+          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(10,38,35,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
+          § 02 — Who we are
+        </div>
 
-          {/* Right content */}
+        {/* main editorial split */}
+        <div
+          className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] items-center flex-1"
+          style={{
+            gap: "var(--section-gap)",
+          }}
+        >
+          {/* Headline + body */}
           <div>
             <h2
               className="font-[family-name:var(--font-display)]"
               style={{
-                fontSize: "clamp(32px,4.5vw,56px)",
-                fontWeight: 500,
-                lineHeight: 1.08,
-                letterSpacing: "-0.02em",
-                color: "#F0EBE3",
-                marginBottom: "48px",
+                fontSize: "var(--text-display-sm)",
+                fontWeight: 400,
+                lineHeight: 0.96,
+                letterSpacing: "-0.025em",
+                color: "#0A2623",
+                marginBottom: "var(--space-7)",
               }}
             >
-              The bridge between{" "}
-              <span style={{ color: "#0D9488" }}>capital</span>{" "}
-              and{" "}
-              <em style={{ fontStyle: "italic", fontFamily: "var(--font-body)", fontWeight: 400 }}>opportunity.</em>
+              The bridge
+              <br />
+              between capital
+              <br />
+              <em style={{ fontStyle: "italic", fontWeight: 400 }}>and opportunity.</em>
             </h2>
 
-            <div
-              style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", marginBottom: "64px" }}
-              className="grid-cols-1 md:!grid-cols-2"
+            <p
+              className="font-[family-name:var(--font-body)]"
+              style={{
+                fontSize: "var(--text-lead)",
+                lineHeight: 1.6,
+                color: "rgba(10,38,35,0.72)",
+                maxWidth: "520px",
+                marginBottom: "var(--space-7)",
+              }}
             >
-              <p className="font-[family-name:var(--font-body)]" style={{ fontSize: "15px", lineHeight: 1.7, color: "rgba(240,235,227,0.82)" }}>
-                Venti Primo Limited is a Lagos-based diversified investment holding company
-                operating at the intersection of transaction advisory, capital markets, and
-                technology infrastructure. We serve corporates, institutions, and
-                high-net-worth individuals across Sub-Saharan Africa.
-              </p>
-              <p className="font-[family-name:var(--font-body)]" style={{ fontSize: "15px", lineHeight: 1.7, color: "rgba(240,235,227,0.82)" }}>
-                We operate with the rigour of global standards and the speed of local
-                knowledge. We close transactions others stall on. From mandate to close,
-                Venti Primo moves with precision.
-              </p>
-            </div>
+              Venti Primo Limited is a Lagos-based diversified investment holding
+              company operating at the intersection of transaction advisory,
+              capital markets, and technology infrastructure. We close
+              transactions others stall on — from mandate to close, with the
+              rigour of global standards and the speed of local knowledge.
+            </p>
 
-            <div style={{ paddingTop: "32px", borderTop: "1px solid rgba(240,235,227,0.10)", display: "flex", flexWrap: "wrap", gap: "32px" }}>
-              {["Incorporated in Nigeria", "SEC Registered", "Lagos · Abuja · London"].map((t) => (
-                <div
-                  key={t}
-                  className="font-[family-name:var(--font-display)]"
-                  style={{
-                    fontSize: "11px",
-                    letterSpacing: "0.14em",
-                    textTransform: "uppercase",
-                    color: "#F0EBE3",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "10px",
-                  }}
-                >
-                  <span style={{ width: "6px", height: "6px", background: "#0D9488", borderRadius: "1px", flexShrink: 0 }} />
-                  {t}
-                </div>
-              ))}
-            </div>
+            <a
+              href="#services"
+              className="font-[family-name:var(--font-body)]"
+              style={{
+                fontSize: "14px",
+                fontWeight: 500,
+                letterSpacing: "0.04em",
+                color: "#F0EBE3",
+                background: "#0A2623",
+                padding: "16px 36px",
+                borderRadius: "9999px",
+                textDecoration: "none",
+                display: "inline-block",
+                transition: "background 200ms ease",
+              }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#134E4A")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#0A2623")}
+            >
+              Our Practices →
+            </a>
           </div>
+
+          {/* Image — Lagos / institutional architecture */}
+          <div
+            style={{
+              position: "relative",
+              aspectRatio: "3/4",
+              maxHeight: "640px",
+              overflow: "hidden",
+              borderRadius: "2px",
+              backgroundColor: "#0A2623",
+            }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1577416412292-747c6607f055?w=900&q=85&auto=format&fit=crop"
+              alt="Lagos skyline at dusk — institutional architecture"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                filter: "saturate(0.9) contrast(1.05)",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* footer credentials row */}
+        <div
+          className="grid grid-cols-2 lg:grid-cols-4"
+          style={{ marginTop: "clamp(64px, 9vh, 96px)" }}
+        >
+          {[
+            { k: "Filing", v: "VP-LAG-001" },
+            { k: "Issuer", v: "Venti Primo Ltd" },
+            { k: "Reg.", v: "SEC Nigeria" },
+            { k: "Offices", v: "Lagos · Abuja · London" },
+          ].map((m, i) => (
+            <div
+              key={m.k}
+              style={{
+                borderTop: "1px solid rgba(10,38,35,0.15)",
+                borderLeft: i % 2 === 1 ? "1px solid rgba(10,38,35,0.1)" : undefined,
+                paddingTop: "var(--space-5)",
+                paddingBottom: "var(--space-6)",
+                paddingLeft: i % 2 === 1 ? "var(--space-5)" : undefined,
+                paddingRight: "var(--space-5)",
+              }}
+            >
+              <div
+                className="font-[family-name:var(--font-data)]"
+                style={{
+                  fontSize: "var(--text-caption)",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                  color: "rgba(10,38,35,0.45)",
+                  marginBottom: "var(--space-3)",
+                }}
+              >
+                {m.k}
+              </div>
+              <div
+                className="font-[family-name:var(--font-display)]"
+                style={{
+                  fontSize: "var(--text-body)",
+                  fontWeight: 400,
+                  letterSpacing: "-0.01em",
+                  color: "#0A2623",
+                  lineHeight: 1.2,
+                }}
+              >
+                {m.v}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

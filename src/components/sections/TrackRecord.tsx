@@ -1,7 +1,7 @@
 const STATS = [
   { value: "$120M+", label: "Deal Pipeline" },
   { value: "12", label: "Transactions in Execution" },
-  { value: "6", label: "Sectors Covered" },
+  { value: "06", label: "Sectors Covered" },
   { value: "90d", label: "Median Close" },
 ];
 
@@ -16,54 +16,108 @@ const DEALS = [
 
 export function TrackRecord() {
   return (
-    <section id="track-record" style={{ backgroundColor: "#2D4850", padding: "clamp(96px,12vw,180px) 0" }}>
-      <div className="mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20">
+    <section
+      id="track-record"
+      data-theme="dark"
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#0A2623",
+        color: "#F0EBE3",
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        className="mx-auto w-full max-w-[1440px]"
+        style={{
+          paddingLeft: "var(--container-px)",
+          paddingRight: "var(--container-px)",
+          paddingTop: "var(--section-py)",
+          paddingBottom: "var(--section-py)",
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <div
-          className="font-[family-name:var(--font-display)]"
+          className="font-[family-name:var(--font-data)]"
           style={{
-            fontSize: "10px",
-            letterSpacing: "0.22em",
+            fontSize: "var(--text-caption)",
+            letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "#8896A8",
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            marginBottom: "28px",
+            color: "rgba(240,235,227,0.5)",
+            marginBottom: "var(--space-7)",
           }}
         >
-          <span style={{ width: "24px", height: "1px", background: "#0D9488", flexShrink: 0 }} />
+          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(240,235,227,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
           § 05 — Track record
         </div>
+
         <h2
           className="font-[family-name:var(--font-display)]"
-          style={{ fontSize: "clamp(32px,4.5vw,56px)", fontWeight: 500, lineHeight: 1.08, letterSpacing: "-0.02em", color: "#F0EBE3", marginBottom: "80px" }}
+          style={{
+            fontSize: "var(--text-display-sm)",
+            fontWeight: 400,
+            lineHeight: 0.96,
+            letterSpacing: "-0.025em",
+            color: "#F0EBE3",
+            marginBottom: "var(--space-10)",
+            maxWidth: "1100px",
+          }}
         >
-          Execution over claims.
+          Execution
+          <br />
+          <em style={{ fontStyle: "italic", fontWeight: 400 }}>over claims.</em>
         </h2>
 
-        {/* Stats */}
+        {/* Oversized stats — stacked vertical pairs */}
         <div
+          className="grid grid-cols-2 lg:grid-cols-4"
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            borderTop: "1px solid rgba(240,235,227,0.10)",
-            borderBottom: "1px solid rgba(240,235,227,0.10)",
-            padding: "40px 0",
-            marginBottom: "80px",
+            borderTop: "1px solid rgba(240,235,227,0.14)",
+            borderBottom: "1px solid rgba(240,235,227,0.14)",
+            marginBottom: "var(--space-9)",
           }}
-          className="grid-cols-2 md:!grid-cols-4"
         >
           {STATS.map((s, i) => (
-            <div key={s.label} style={{ padding: "8px 24px", borderLeft: i === 0 ? "none" : "1px solid rgba(240,235,227,0.10)" }}>
+            <div
+              key={s.label}
+              style={{
+                paddingTop: "var(--space-7)",
+                paddingBottom: "var(--space-7)",
+                paddingLeft: "var(--space-6)",
+                paddingRight: "var(--space-6)",
+              }}
+              className={[
+                "border-[rgba(240,235,227,0.14)]",
+                i % 2 === 1 ? "border-l" : "",
+                i >= 2 ? "border-t" : "",
+                "lg:border-t-0",
+                i === 0 ? "lg:border-l-0" : "lg:border-l",
+              ].filter(Boolean).join(" ")}
+            >
               <div
                 className="font-[family-name:var(--font-display)]"
-                style={{ fontSize: "clamp(36px,4.4vw,60px)", fontWeight: 700, lineHeight: 1, letterSpacing: "-0.03em", color: "#D4A853" }}
+                style={{
+                  fontSize: "clamp(2.25rem, 1.5rem + 4vw, 5rem)",
+                  fontWeight: 400,
+                  lineHeight: 0.95,
+                  letterSpacing: "-0.04em",
+                  color: "#F0EBE3",
+                  marginBottom: "var(--space-3)",
+                }}
               >
                 {s.value}
               </div>
               <div
-                className="font-[family-name:var(--font-display)]"
-                style={{ marginTop: "14px", fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#8896A8" }}
+                className="font-[family-name:var(--font-data)]"
+                style={{
+                  fontSize: "var(--text-caption)",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                  color: "rgba(240,235,227,0.5)",
+                }}
               >
                 {s.label}
               </div>
@@ -71,29 +125,79 @@ export function TrackRecord() {
           ))}
         </div>
 
-        {/* Deals table */}
-        <div style={{ borderTop: "1px solid rgba(240,235,227,0.10)" }}>
+        {/* Deals ledger header */}
+        <div
+          className="hidden md:grid font-[family-name:var(--font-data)]"
+          style={{
+            fontSize: "var(--text-caption)",
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            color: "rgba(240,235,227,0.5)",
+            marginBottom: "var(--space-5)",
+            gridTemplateColumns: "1.4fr 1fr 1fr 80px",
+            gap: "var(--space-5)",
+            paddingBottom: "var(--space-4)",
+            borderBottom: "1px solid rgba(240,235,227,0.2)",
+          }}
+        >
+          <span>Sector</span>
+          <span>Mandate</span>
+          <span>Market</span>
+          <span style={{ textAlign: "right" }}>Year</span>
+        </div>
+        <div>
           {DEALS.map((d, i) => (
             <div
               key={i}
+              className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_80px]"
               style={{
-                display: "grid",
-                gridTemplateColumns: "1fr auto auto auto",
-                gap: "16px 48px",
-                alignItems: "center",
-                padding: "24px 0",
+                gap: "var(--space-3)",
+                alignItems: "baseline",
+                padding: "var(--space-5) 0",
                 borderBottom: "1px solid rgba(240,235,227,0.10)",
               }}
             >
-              <span className="font-[family-name:var(--font-display)]" style={{ fontSize: "16px", fontWeight: 500, color: "#F0EBE3" }}>{d.sector}</span>
-              <span className="font-[family-name:var(--font-display)]" style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "#0D9488", whiteSpace: "nowrap" }}>{d.type}</span>
-              <span className="font-[family-name:var(--font-display)]" style={{ fontSize: "10px", letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(240,235,227,0.25)", whiteSpace: "nowrap" }}>{d.market}</span>
-              <span className="font-[family-name:var(--font-display)]" style={{ fontSize: "10px", letterSpacing: "0.12em", color: "#8896A8", whiteSpace: "nowrap" }}>{d.year}</span>
+              <span
+                className="font-[family-name:var(--font-display)]"
+                style={{ fontSize: "var(--text-h4)", color: "#F0EBE3", letterSpacing: "-0.01em" }}
+              >
+                {d.sector}
+              </span>
+              <span
+                className="font-[family-name:var(--font-body)]"
+                style={{ fontSize: "var(--text-small)", color: "rgba(240,235,227,0.78)" }}
+              >
+                {d.type}
+              </span>
+              <span
+                className="font-[family-name:var(--font-body)]"
+                style={{ fontSize: "var(--text-small)", color: "rgba(240,235,227,0.55)" }}
+              >
+                {d.market}
+              </span>
+              <span
+                className="font-[family-name:var(--font-data)] md:text-right"
+                style={{
+                  fontSize: "var(--text-caption)",
+                  letterSpacing: "0.05em",
+                  color: "rgba(240,235,227,0.78)",
+                }}
+              >
+                {d.year}
+              </span>
             </div>
           ))}
         </div>
 
-        <p className="font-[family-name:var(--font-body)]" style={{ fontSize: "13px", color: "#8896A8", marginTop: "32px", fontStyle: "italic" }}>
+        <p
+          className="font-[family-name:var(--font-body)]"
+          style={{
+            marginTop: "32px",
+            fontSize: "13px",
+            color: "rgba(240,235,227,0.45)",
+            fontStyle: "italic",
+          }}
+        >
           Transaction details are confidential. Mandates disclosed only with client consent.
         </p>
       </div>
