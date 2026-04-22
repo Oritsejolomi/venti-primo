@@ -1,65 +1,248 @@
+"use client";
+
+import { useState } from "react";
+
 const SECTORS = [
-  { n: "01", name: "Oil & Gas and Energy", sub: "Upstream · Midstream · Energy Transition", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80&auto=format&fit=crop" },
-  { n: "02", name: "Infrastructure", sub: "Power · Transport · Industrial Logistics", img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80&auto=format&fit=crop" },
-  { n: "03", name: "Technology & Digital", sub: "Network Solutions · Data Centres · Connectivity", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80&auto=format&fit=crop" },
-  { n: "04", name: "Network Infrastructure", sub: "Telecoms · Fibre · Enterprise Networks", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=900&q=80&auto=format&fit=crop" },
-  { n: "05", name: "Financial Services", sub: "Capital Markets · Structured Finance · Banking", img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80&auto=format&fit=crop" },
-  { n: "06", name: "Global Markets", sub: "Cross-Border · Diaspora Investment · FX", img: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=900&q=80&auto=format&fit=crop" },
+  {
+    n: "01",
+    name: "Oil & Gas and Energy",
+    sub: "Upstream · Midstream · Energy Transition",
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1400&q=85&auto=format&fit=crop",
+    alt: "Offshore oil platform at sea",
+  },
+  {
+    n: "02",
+    name: "Infrastructure",
+    sub: "Power · Transport · Industrial Logistics",
+    image: "https://images.unsplash.com/photo-1473625247510-8ceb1760943f?w=1400&q=85&auto=format&fit=crop",
+    alt: "Industrial bridge and transport infrastructure",
+  },
+  {
+    n: "03",
+    name: "Technology & Digital",
+    sub: "Network Solutions · Data Centres · Connectivity",
+    image: "https://images.unsplash.com/photo-1591808216268-ce0b82787efe?w=1400&q=85&auto=format&fit=crop",
+    alt: "Server racks in a modern data centre",
+  },
+  {
+    n: "04",
+    name: "Network Infrastructure",
+    sub: "Telecoms · Fibre · Enterprise Networks",
+    image: "https://images.unsplash.com/photo-1551703599-6b3e8379aa8d?w=1400&q=85&auto=format&fit=crop",
+    alt: "Fibre optic cables and telecom equipment",
+  },
+  {
+    n: "05",
+    name: "Financial Services",
+    sub: "Capital Markets · Structured Finance · Banking",
+    image: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=1400&q=85&auto=format&fit=crop",
+    alt: "Financial trading floor screens",
+  },
+  {
+    n: "06",
+    name: "Global Markets",
+    sub: "Cross-Border · Diaspora Investment · FX",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1400&q=85&auto=format&fit=crop",
+    alt: "Global currency trading display",
+  },
 ];
 
 export function Sectors() {
+  const [active, setActive] = useState(0);
+  const current = SECTORS[active];
+
   return (
-    <section id="sectors" style={{ backgroundColor: "#1A1F2E", padding: "clamp(96px,12vw,180px) 0", overflow: "hidden" }}>
-      <div className="mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20">
+    <section
+      id="sectors"
+      data-theme="light"
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#F0EBE3",
+        color: "#0A2623",
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        className="mx-auto w-full max-w-[1440px]"
+        style={{
+          paddingLeft: "var(--container-px)",
+          paddingRight: "var(--container-px)",
+          paddingTop: "var(--section-py)",
+          paddingBottom: "var(--section-py)",
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <div
-          className="font-[family-name:var(--font-display)]"
+          className="font-[family-name:var(--font-data)]"
           style={{
-            fontSize: "10px",
-            letterSpacing: "0.22em",
+            fontSize: "var(--text-caption)",
+            letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "#8896A8",
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            marginBottom: "28px",
+            color: "rgba(10,38,35,0.5)",
+            marginBottom: "var(--space-7)",
           }}
         >
-          <span style={{ width: "24px", height: "1px", background: "#0D9488", flexShrink: 0 }} />
+          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(10,38,35,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
           § 04 — Where we operate
         </div>
+
         <h2
           className="font-[family-name:var(--font-display)]"
-          style={{ fontSize: "clamp(32px,4.5vw,56px)", fontWeight: 500, lineHeight: 1.08, letterSpacing: "-0.02em", color: "#F0EBE3", marginBottom: "64px" }}
+          style={{
+            fontSize: "var(--text-display-sm)",
+            fontWeight: 400,
+            lineHeight: 0.96,
+            letterSpacing: "-0.025em",
+            color: "#0A2623",
+            marginBottom: "var(--space-9)",
+            maxWidth: "1100px",
+          }}
         >
-          Six sectors.<br />Highest-conviction markets.
+          Six sectors.
+          <br />
+          <em style={{ fontStyle: "italic", fontWeight: 400 }}>Highest conviction.</em>
         </h2>
-      </div>
 
-      <div className="px-8 md:px-14 lg:px-20" style={{ overflowX: "auto", scrollbarWidth: "none" }}>
-        <div style={{ display: "flex", gap: "16px", paddingBottom: "8px" }}>
-          {SECTORS.map((s) => (
+        <div
+          className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] items-stretch flex-1"
+          style={{
+            gap: "var(--section-gap)",
+          }}
+        >
+          {/* Stacked sector list — single focal numbered roster */}
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            {SECTORS.map((s, i) => {
+              const isActive = i === active;
+              return (
+                <button
+                  key={s.n}
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
+                  style={{
+                    appearance: "none",
+                    background: "transparent",
+                    border: "none",
+                    textAlign: "left",
+                    cursor: "pointer",
+                    padding: "var(--space-5) 0",
+                    borderTop: i === 0 ? "1px solid rgba(10,38,35,0.14)" : "none",
+                    borderBottom: "1px solid rgba(10,38,35,0.14)",
+                    color: "inherit",
+                    display: "grid",
+                    gridTemplateColumns: "44px 1fr auto",
+                    gap: "var(--space-5)",
+                    alignItems: "baseline",
+                    transition: "padding-left 280ms ease",
+                    paddingLeft: isActive ? "16px" : "0px",
+                  }}
+                >
+                  <span
+                    className="font-[family-name:var(--font-data)]"
+                    style={{
+                      fontSize: "var(--text-caption)",
+                      letterSpacing: "0.28em",
+                      color: isActive ? "#0D9488" : "rgba(10,38,35,0.4)",
+                      transition: "color 280ms ease",
+                    }}
+                  >
+                    {s.n}
+                  </span>
+                  <span
+                    className="font-[family-name:var(--font-display)]"
+                    style={{
+                      fontSize: "var(--text-h2)",
+                      fontWeight: 400,
+                      lineHeight: 1.15,
+                      letterSpacing: "-0.02em",
+                      color: isActive ? "#0A2623" : "rgba(10,38,35,0.45)",
+                      transition: "color 280ms ease",
+                    }}
+                  >
+                    {s.name}
+                  </span>
+                  <span
+                    className="font-[family-name:var(--font-data)] hidden md:inline"
+                    style={{
+                      fontSize: "var(--text-caption)",
+                      letterSpacing: "0.18em",
+                      textTransform: "uppercase",
+                      color: isActive ? "rgba(10,38,35,0.7)" : "rgba(10,38,35,0.35)",
+                      transition: "color 280ms ease",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {s.sub.split(" · ")[0]}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Focal image */}
+          <div
+            style={{
+              position: "relative",
+              aspectRatio: "3/4",
+              maxHeight: "640px",
+              overflow: "hidden",
+              borderRadius: "2px",
+              backgroundColor: "#0A2623",
+            }}
+          >
+            {SECTORS.map((s, i) => (
+              <img
+                key={s.n}
+                src={s.image}
+                alt={s.alt}
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  filter: "saturate(0.9) contrast(1.05)",
+                  opacity: i === active ? 1 : 0,
+                  transition: "opacity 500ms ease",
+                }}
+              />
+            ))}
             <div
-              key={s.n}
               style={{
-                position: "relative",
-                flexShrink: 0,
-                width: "clamp(280px,26vw,360px)",
-                height: "460px",
-                overflow: "hidden",
-                backgroundImage: `url('${s.img}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(180deg, rgba(10,38,35,0.05) 0%, rgba(10,38,35,0.55) 100%)",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                left: 0,
+                right: 0,
+                bottom: 0,
+                padding: "32px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "8px",
               }}
             >
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,31,46,0.97) 0%, rgba(26,31,46,0.3) 55%, rgba(26,31,46,0.05) 100%)" }} />
-              <div style={{ position: "absolute", inset: 0, padding: "32px", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
-                <span className="font-[family-name:var(--font-display)]" style={{ fontSize: "10px", color: "rgba(240,235,227,0.25)", letterSpacing: "0.15em", marginBottom: "10px" }}>{s.n}</span>
-                <h3 className="font-[family-name:var(--font-display)]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: 1.3, color: "#F0EBE3", marginBottom: "8px" }}>{s.name}</h3>
-                <p className="font-[family-name:var(--font-display)]" style={{ fontSize: "10px", color: "rgba(240,235,227,0.35)", letterSpacing: "0.06em", lineHeight: 1.7 }}>{s.sub}</p>
+              <div
+                className="font-[family-name:var(--font-data)]"
+                style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(240,235,227,0.7)" }}
+              >
+                / {current.n} — {current.name}
+              </div>
+              <div
+                className="font-[family-name:var(--font-display)]"
+                style={{ fontSize: "16px", letterSpacing: "0.01em", color: "#F0EBE3", fontStyle: "italic" }}
+              >
+                {current.sub}
               </div>
             </div>
-          ))}
-          <div style={{ minWidth: "32px", flexShrink: 0 }} />
+          </div>
         </div>
       </div>
     </section>

@@ -1,8 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-
 const COLS = [
   { t: "Platform", links: ["Services", "Sectors", "Track Record", "Insights", "Team"] },
   { t: "Company", links: ["About", "Careers", "Press", "Compliance"] },
@@ -11,55 +8,69 @@ const COLS = [
 
 export function Footer() {
   return (
-    <footer style={{ backgroundColor: "#1A1F2E", borderTop: "1px solid rgba(240,235,227,0.10)" }}>
-      <div className="mx-auto w-full max-w-[1280px] px-8 md:px-14 lg:px-20" style={{ paddingTop: "80px", paddingBottom: "40px" }}>
-        {/* Giant wordmark */}
+    <footer
+      data-theme="dark"
+      style={{
+        backgroundColor: "#0A2623",
+        color: "#F0EBE3",
+        borderTop: "1px solid rgba(240,235,227,0.08)",
+      }}
+    >
+      <div
+        className="mx-auto w-full max-w-[1440px]"
+        style={{
+          paddingLeft: "var(--container-px)",
+          paddingRight: "var(--container-px)",
+          paddingTop: "var(--space-10)",
+          paddingBottom: "var(--space-7)",
+        }}
+      >
+        {/* Giant logomark */}
         <div
-          className="font-[family-name:var(--font-display)]"
           style={{
-            fontWeight: 700,
-            fontSize: "clamp(64px,14vw,200px)",
-            lineHeight: 0.9,
-            letterSpacing: "-0.05em",
-            color: "#F0EBE3",
-            marginBottom: "64px",
-            overflow: "hidden",
+            marginBottom: "var(--space-9)",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
-          VENTI&nbsp;PRIMO
+          <img
+            src="/logomark-parchment.png"
+            alt="Venti Primo"
+            style={{
+              width: "100%",
+              maxWidth: "1100px",
+              height: "auto",
+              display: "block",
+              opacity: 0.96,
+            }}
+          />
         </div>
 
         <div
+          className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]"
           style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr 1fr",
-            gap: "48px",
-            paddingBottom: "48px",
+            gap: "var(--space-7)",
+            paddingBottom: "var(--space-8)",
             borderBottom: "1px solid rgba(240,235,227,0.10)",
           }}
-          className="grid-cols-2 lg:!grid-cols-[2fr_1fr_1fr_1fr]"
         >
-          {/* Brand column */}
-          <div>
-            <div className="flex items-center gap-3" style={{ marginBottom: "16px" }}>
-              <Image src="/logomark-parchment.png" alt="Venti Primo" width={20} height={20} />
-              <span
-                className="font-[family-name:var(--font-display)]"
-                style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "-0.01em", color: "#F0EBE3" }}
-              >
-                VENTI PRIMO
-              </span>
-            </div>
+          <div className="col-span-2 lg:col-span-1">
             <p
               className="font-[family-name:var(--font-body)]"
-              style={{ fontSize: "13px", color: "rgba(240,235,227,0.58)", lineHeight: 1.7, maxWidth: "280px", marginBottom: "32px" }}
+              style={{
+                fontSize: "var(--text-small)",
+                color: "rgba(240,235,227,0.65)",
+                lineHeight: 1.7,
+                maxWidth: "320px",
+                marginBottom: "var(--space-6)",
+              }}
             >
               Diversified investment holding company. Lagos, Nigeria.
             </p>
             <div style={{ display: "flex", gap: "12px" }}>
               {[
-                { id: "linkedin", url: "https://linkedin.com" },
-                { id: "twitter", url: "https://x.com" },
+                { id: "linkedin", label: "in", url: "https://linkedin.com" },
+                { id: "twitter", label: "𝕏", url: "https://x.com" },
               ].map((s) => (
                 <a
                   key={s.id}
@@ -68,58 +79,63 @@ export function Footer() {
                   rel="noopener noreferrer"
                   aria-label={s.id}
                   style={{
-                    width: 38,
-                    height: 38,
-                    borderRadius: "8px",
-                    border: "1px solid rgba(240,235,227,0.14)",
+                    width: 40,
+                    height: 40,
+                    borderRadius: "9999px",
+                    border: "1px solid rgba(240,235,227,0.18)",
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "#8896A8",
+                    color: "rgba(240,235,227,0.65)",
                     textDecoration: "none",
-                    fontSize: "11px",
-                    letterSpacing: "0.05em",
-                    textTransform: "uppercase",
-                    transition: "color 180ms, border-color 180ms",
+                    fontSize: "13px",
+                    transition: "all 200ms ease",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "#0D9488";
-                    (e.currentTarget as HTMLElement).style.borderColor = "#0D9488";
+                    (e.currentTarget as HTMLElement).style.color = "#0A2623";
+                    (e.currentTarget as HTMLElement).style.background = "#F0EBE3";
+                    (e.currentTarget as HTMLElement).style.borderColor = "#F0EBE3";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "#8896A8";
-                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(240,235,227,0.14)";
+                    (e.currentTarget as HTMLElement).style.color = "rgba(240,235,227,0.65)";
+                    (e.currentTarget as HTMLElement).style.background = "transparent";
+                    (e.currentTarget as HTMLElement).style.borderColor = "rgba(240,235,227,0.18)";
                   }}
                 >
-                  {s.id === "linkedin" ? "in" : "𝕏"}
+                  {s.label}
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Link columns */}
           {COLS.map((c) => (
             <div key={c.t}>
               <div
-                className="font-[family-name:var(--font-display)]"
-                style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "#8896A8", marginBottom: "16px" }}
+                className="font-[family-name:var(--font-data)]"
+                style={{
+                  fontSize: "var(--text-caption)",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                  color: "rgba(240,235,227,0.5)",
+                  marginBottom: "var(--space-4)",
+                }}
               >
                 {c.t}
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-3)" }}>
                 {c.links.map((l) => (
                   <a
                     key={l}
                     href={`#${l.toLowerCase().replace(/\s/g, "-")}`}
                     className="font-[family-name:var(--font-body)]"
                     style={{
-                      fontSize: "14px",
-                      color: "rgba(240,235,227,0.65)",
+                      fontSize: "var(--text-small)",
+                      color: "rgba(240,235,227,0.78)",
                       textDecoration: "none",
-                      transition: "color 180ms",
+                      transition: "color 200ms ease",
                     }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#0D9488")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(240,235,227,0.65)")}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "#F0EBE3")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(240,235,227,0.78)")}
                   >
                     {l}
                   </a>
@@ -139,11 +155,27 @@ export function Footer() {
             gap: "16px",
           }}
         >
-          <p className="font-[family-name:var(--font-display)]" style={{ fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", color: "#8896A8" }}>
-            © {new Date().getFullYear()} Venti Primo Limited. All rights reserved.
+          <p
+            className="font-[family-name:var(--font-data)]"
+            style={{
+              fontSize: "var(--text-caption)",
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: "rgba(240,235,227,0.45)",
+            }}
+          >
+            © {new Date().getFullYear()} Venti Primo Limited
           </p>
-          <p className="font-[family-name:var(--font-display)]" style={{ fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(240,235,227,0.2)" }}>
-            Confidential · Institutional use · VP · LAG · 001
+          <p
+            className="font-[family-name:var(--font-data)]"
+            style={{
+              fontSize: "var(--text-caption)",
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: "rgba(240,235,227,0.3)",
+            }}
+          >
+            VP · LAG · 001
           </p>
         </div>
       </div>
