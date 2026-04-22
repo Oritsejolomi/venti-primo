@@ -244,11 +244,13 @@ function SecondaryArticle({
         flexDirection: "column",
         textDecoration: "none",
         color: "inherit",
-        padding: "40px 0",
+        paddingTop: "40px",
+        paddingBottom: "40px",
+        paddingRight: "0px",
+        paddingLeft: hover ? "16px" : "0px",
         borderTop: first ? "1px solid rgba(10,38,35,0.14)" : "none",
         borderBottom: "1px solid rgba(10,38,35,0.14)",
         transition: "padding-left 280ms ease",
-        paddingLeft: hover ? "16px" : "0px",
       }}
     >
       <div

@@ -133,31 +133,34 @@ export function About() {
 
         {/* footer credentials row */}
         <div
-          style={{
-            marginTop: "clamp(64px, 9vh, 96px)",
-            paddingTop: "32px",
-            borderTop: "1px solid rgba(10,38,35,0.12)",
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "48px",
-            justifyContent: "space-between",
-          }}
+          className="grid grid-cols-2 lg:grid-cols-4"
+          style={{ marginTop: "clamp(64px, 9vh, 96px)" }}
         >
           {[
             { k: "Filing", v: "VP-LAG-001" },
             { k: "Issuer", v: "Venti Primo Ltd" },
             { k: "Reg.", v: "SEC Nigeria" },
             { k: "Offices", v: "Lagos · Abuja · London" },
-          ].map((m) => (
-            <div key={m.k}>
+          ].map((m, i) => (
+            <div
+              key={m.k}
+              style={{
+                borderTop: "1px solid rgba(10,38,35,0.15)",
+                borderLeft: i % 2 === 1 ? "1px solid rgba(10,38,35,0.1)" : undefined,
+                paddingTop: "var(--space-5)",
+                paddingBottom: "var(--space-6)",
+                paddingLeft: i % 2 === 1 ? "var(--space-5)" : undefined,
+                paddingRight: "var(--space-5)",
+              }}
+            >
               <div
                 className="font-[family-name:var(--font-data)]"
                 style={{
-                  fontSize: "10px",
+                  fontSize: "var(--text-caption)",
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
-                  color: "rgba(10,38,35,0.5)",
-                  marginBottom: "8px",
+                  color: "rgba(10,38,35,0.45)",
+                  marginBottom: "var(--space-3)",
                 }}
               >
                 {m.k}
@@ -165,10 +168,11 @@ export function About() {
               <div
                 className="font-[family-name:var(--font-display)]"
                 style={{
-                  fontSize: "18px",
+                  fontSize: "var(--text-body)",
                   fontWeight: 400,
                   letterSpacing: "-0.01em",
                   color: "#0A2623",
+                  lineHeight: 1.2,
                 }}
               >
                 {m.v}

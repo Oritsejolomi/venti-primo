@@ -25,27 +25,6 @@ export function Footer() {
           paddingBottom: "var(--space-7)",
         }}
       >
-        {/* Giant logomark */}
-        <div
-          style={{
-            marginBottom: "var(--space-9)",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <img
-            src="/logomark-parchment.png"
-            alt="Venti Primo"
-            style={{
-              width: "100%",
-              maxWidth: "1100px",
-              height: "auto",
-              display: "block",
-              opacity: 0.96,
-            }}
-          />
-        </div>
-
         <div
           className="grid grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]"
           style={{

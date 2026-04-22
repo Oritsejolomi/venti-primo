@@ -103,8 +103,8 @@
   --space-12: 14rem;    /* 224 */
 
   /* ── Section vertical rhythm (responsive) ── */
-  --section-py: clamp(4rem, 12vh, 10rem);    /* 64→160 */
-  --section-gap: clamp(2.5rem, 6vw, 6rem);   /* 40→96 inner gap */
+  --section-py: clamp(3rem, 7vh, 7rem);      /* 48→112 */
+  --section-gap: clamp(2rem, 4vw, 5rem);     /* 32→80 inner gap */
   --container-px: clamp(1.25rem, 4vw, 6rem); /* 20→96 horizontal pad */
 }
 
@@ -152,10 +152,8 @@ body {
 }
 
 /* ── Scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-midnight); }
-::-webkit-scrollbar-thumb { background: var(--color-dusk); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-slate); }
+html { scrollbar-width: none; }
+::-webkit-scrollbar { display: none; }
 
 /* ── Selection ── */
 ::selection {

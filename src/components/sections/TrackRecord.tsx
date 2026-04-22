@@ -84,11 +84,18 @@ export function TrackRecord() {
             <div
               key={s.label}
               style={{
-                padding: "var(--space-7) var(--space-6)",
-                borderLeft: i > 0 ? "1px solid rgba(240,235,227,0.14)" : "none",
-                borderTop: i >= 2 ? "1px solid rgba(240,235,227,0.14)" : undefined,
+                paddingTop: "var(--space-7)",
+                paddingBottom: "var(--space-7)",
+                paddingLeft: "var(--space-6)",
+                paddingRight: "var(--space-6)",
               }}
-              className={`${i === 2 ? "lg:!border-t-0" : ""} ${i % 2 === 0 ? "lg:!border-l-0 max-lg:!border-l-0" : ""}`}
+              className={[
+                "border-[rgba(240,235,227,0.14)]",
+                i % 2 === 1 ? "border-l" : "",
+                i >= 2 ? "border-t" : "",
+                "lg:border-t-0",
+                i === 0 ? "lg:border-l-0" : "lg:border-l",
+              ].filter(Boolean).join(" ")}
             >
               <div
                 className="font-[family-name:var(--font-display)]"

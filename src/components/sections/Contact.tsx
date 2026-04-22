@@ -357,32 +357,6 @@ export function Contact() {
                   />
                 </div>
 
-                <label
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    cursor: "pointer",
-                  }}
-                >
-                  <input
-                    type="checkbox"
-                    style={{
-                      accentColor: "#0A2623",
-                      width: "16px",
-                      height: "16px",
-                      cursor: "pointer",
-                      flexShrink: 0,
-                    }}
-                  />
-                  <span
-                    className="font-[family-name:var(--font-body)]"
-                    style={{ fontSize: "14px", color: "rgba(10,38,35,0.7)" }}
-                  >
-                    Subscribe to Venti Primo Insights
-                  </span>
-                </label>
-
                 <div style={{ marginTop: "16px" }}>
                   <button
                     type="submit"

@@ -77,7 +77,7 @@ export function Services() {
             letterSpacing: "0.28em",
             textTransform: "uppercase",
             color: "rgba(240,235,227,0.5)",
-            marginBottom: "var(--space-7)",
+            marginBottom: "var(--space-5)",
           }}
         >
           <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(240,235,227,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
@@ -92,7 +92,7 @@ export function Services() {
             lineHeight: 0.96,
             letterSpacing: "-0.025em",
             color: "#F0EBE3",
-            marginBottom: "var(--space-9)",
+            marginBottom: "var(--space-7)",
             maxWidth: "1100px",
           }}
         >
@@ -104,12 +104,11 @@ export function Services() {
         {/* main split: image left, list right */}
         <div
           className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] items-stretch flex-1"
-          style={{
-            gap: "var(--section-gap)",
-          }}
+          style={{ gap: "var(--section-gap)" }}
         >
-          {/* Focal image — swaps with hover */}
+          {/* Focal image — desktop only */}
           <div
+            className="hidden lg:block"
             style={{
               position: "relative",
               aspectRatio: "3/4",
@@ -175,69 +174,112 @@ export function Services() {
             {SERVICES.map((s, i) => {
               const isActive = i === active;
               return (
-                <button
-                  key={s.n}
-                  onMouseEnter={() => setActive(i)}
-                  onFocus={() => setActive(i)}
-                  style={{
-                    appearance: "none",
-                    background: "transparent",
-                    border: "none",
-                    textAlign: "left",
-                    cursor: "pointer",
-                    padding: "var(--space-6) 0",
-                    borderTop: i === 0 ? "1px solid rgba(240,235,227,0.12)" : "none",
-                    borderBottom: "1px solid rgba(240,235,227,0.12)",
-                    color: "inherit",
-                    display: "grid",
-                    gridTemplateColumns: "44px 1fr auto",
-                    gap: "var(--space-6)",
-                    alignItems: "center",
-                    transition: "padding-left 280ms ease",
-                    paddingLeft: isActive ? "16px" : "0px",
-                  }}
-                >
-                  <span
-                    className="font-[family-name:var(--font-data)]"
+                <div key={s.n}>
+                  <button
+                    onMouseEnter={() => setActive(i)}
+                    onFocus={() => setActive(i)}
+                    onClick={() => setActive(i)}
                     style={{
-                      fontSize: "var(--text-caption)",
-                      letterSpacing: "0.28em",
-                      color: isActive ? "#5EEAD4" : "rgba(240,235,227,0.4)",
-                      transition: "color 280ms ease",
+                      appearance: "none",
+                      background: "transparent",
+                      border: "none",
+                      textAlign: "left",
+                      cursor: "pointer",
+                      width: "100%",
+                      paddingTop: "var(--space-5)",
+                      paddingBottom: "var(--space-5)",
+                      paddingRight: "0px",
+                      paddingLeft: isActive ? "16px" : "0px",
+                      borderTop: i === 0 ? "1px solid rgba(240,235,227,0.12)" : "none",
+                      borderBottom: "1px solid rgba(240,235,227,0.12)",
+                      color: "inherit",
+                      display: "grid",
+                      gridTemplateColumns: "44px 1fr auto",
+                      gap: "var(--space-5)",
+                      alignItems: "center",
+                      transition: "padding-left 280ms ease",
                     }}
                   >
-                    {s.n}
-                  </span>
-                  <span
-                    className="font-[family-name:var(--font-display)]"
+                    <span
+                      className="font-[family-name:var(--font-data)]"
+                      style={{
+                        fontSize: "var(--text-caption)",
+                        letterSpacing: "0.28em",
+                        color: isActive ? "#5EEAD4" : "rgba(240,235,227,0.4)",
+                        transition: "color 280ms ease",
+                      }}
+                    >
+                      {s.n}
+                    </span>
+                    <span
+                      className="font-[family-name:var(--font-display)]"
+                      style={{
+                        fontSize: "var(--text-h3)",
+                        fontWeight: 400,
+                        lineHeight: 1.1,
+                        letterSpacing: "-0.02em",
+                        color: isActive ? "#F0EBE3" : "rgba(240,235,227,0.55)",
+                        transition: "color 280ms ease",
+                      }}
+                    >
+                      {s.title}
+                    </span>
+                    <span
+                      className="font-[family-name:var(--font-display)]"
+                      style={{
+                        fontSize: "var(--text-h4)",
+                        color: isActive ? "#5EEAD4" : "rgba(240,235,227,0.3)",
+                        transition: "color 280ms ease, transform 280ms ease",
+                        transform: isActive ? "translateX(4px)" : "none",
+                      }}
+                    >
+                      →
+                    </span>
+                  </button>
+                  {/* Image + body inline — mobile only */}
+                  <div
+                    className="lg:hidden"
                     style={{
-                      fontSize: "var(--text-h2)",
-                      fontWeight: 400,
-                      lineHeight: 1.1,
-                      letterSpacing: "-0.02em",
-                      color: isActive ? "#F0EBE3" : "rgba(240,235,227,0.55)",
-                      transition: "color 280ms ease",
+                      overflow: "hidden",
+                      maxHeight: isActive ? "340px" : "0px",
+                      opacity: isActive ? 1 : 0,
+                      transition: "max-height 400ms ease, opacity 280ms ease",
                     }}
                   >
-                    {s.title}
-                  </span>
-                  <span
-                    className="font-[family-name:var(--font-display)]"
-                    style={{
-                      fontSize: "var(--text-h4)",
-                      color: isActive ? "#5EEAD4" : "rgba(240,235,227,0.3)",
-                      transition: "color 280ms ease, transform 280ms ease",
-                      transform: isActive ? "translateX(4px)" : "none",
-                    }}
-                  >
-                    →
-                  </span>
-                </button>
+                    <div style={{ position: "relative", height: "180px", overflow: "hidden", borderRadius: "2px", margin: "0 0 var(--space-4) 0" }}>
+                      <img
+                        src={s.image}
+                        alt={s.alt}
+                        style={{ width: "100%", height: "100%", objectFit: "cover", filter: "saturate(0.85) contrast(1.05)" }}
+                      />
+                      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(10,38,35,0.05) 0%, rgba(10,38,35,0.5) 100%)" }} />
+                      <div
+                        className="font-[family-name:var(--font-data)]"
+                        style={{ position: "absolute", bottom: "14px", left: "16px", right: "16px", fontSize: "10px", letterSpacing: "0.24em", textTransform: "uppercase", color: "rgba(240,235,227,0.75)", display: "flex", justifyContent: "space-between" }}
+                      >
+                        <span>/ {s.n}</span>
+                        <span>{s.sub}</span>
+                      </div>
+                    </div>
+                    <p
+                      className="font-[family-name:var(--font-body)]"
+                      style={{
+                        padding: "0 0 var(--space-5) 0",
+                        fontSize: "var(--text-small)",
+                        lineHeight: 1.65,
+                        color: "rgba(240,235,227,0.65)",
+                      }}
+                    >
+                      {s.body}
+                    </p>
+                  </div>
+                </div>
               );
             })}
 
+            {/* Body text — desktop only, below list */}
             <p
-              className="font-[family-name:var(--font-body)]"
+              className="hidden lg:block font-[family-name:var(--font-body)]"
               style={{
                 marginTop: "var(--space-7)",
                 fontSize: "var(--text-lead)",
