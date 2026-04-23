@@ -29,6 +29,8 @@ export function Hero() {
         muted
         loop
         playsInline
+        preload="auto"
+        poster="/hero-poster-v2.jpg"
         style={{
           position: "absolute",
           inset: 0,
@@ -38,7 +40,7 @@ export function Hero() {
           objectPosition: "center",
         }}
       >
-        <source src="/hero-lagos.mp4" type="video/mp4" />
+        <source src="/hero-lagos-v2.mp4" type="video/mp4" />
       </video>
 
       <div
