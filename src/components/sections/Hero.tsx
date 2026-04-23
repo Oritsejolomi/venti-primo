@@ -33,11 +33,12 @@ export function Hero() {
         poster="/hero-poster-v2.jpg"
         style={{
           position: "absolute",
-          inset: 0,
-          width: "100%",
+          top: 0,
+          left: 0,
+          width: "115%",
           height: "100%",
           objectFit: "cover",
-          objectPosition: "center",
+          objectPosition: "left center",
         }}
       >
         <source src="/hero-lagos-v2.mp4" type="video/mp4" />
