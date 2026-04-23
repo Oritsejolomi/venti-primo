@@ -43,7 +43,6 @@ export function Hero() {
         loop
         playsInline
         preload="auto"
-        poster="/hero-poster-sm.jpg"
         style={{
           position: "absolute",
           inset: 0,
