@@ -83,8 +83,8 @@ export function Team() {
               }}
             >
               <img
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&q=85&auto=format&fit=crop"
-                alt="Boardroom — institutional working environment"
+                src="https://images.unsplash.com/photo-1739298061707-cefee19941b7?w=1200&q=85&auto=format&fit=crop"
+                alt="African team and their director in a boardroom meeting"
                 style={{
                   width: "100%",
                   height: "100%",
