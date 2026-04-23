@@ -119,8 +119,8 @@ export function About() {
             }}
           >
             <img
-              src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=85&auto=format&fit=crop"
-              alt="Modern bridge at dusk — the bridge between capital and opportunity"
+              src="https://images.unsplash.com/photo-1648023200201-8fcede127835?w=900&q=85&auto=format&fit=crop"
+              alt="Third Mainland Bridge Lagos at night — the bridge between capital and opportunity"
               style={{
                 width: "100%",
                 height: "100%",
