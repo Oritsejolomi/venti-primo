@@ -36,8 +36,8 @@ const SERVICES = [
     sub: "Discretionary Mandates",
     body: "Bespoke investment solutions and portfolio advisory for high-net-worth individuals and family offices.",
     image:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=85&auto=format&fit=crop",
-    alt: "Private banking environment",
+      "https://images.unsplash.com/photo-1566041510394-cf7c8fe21800?w=1200&q=85&auto=format&fit=crop",
+    alt: "White marble surface — institutional private wealth",
   },
 ];
 

@@ -7,8 +7,8 @@ const SECTORS = [
     n: "01",
     name: "Oil & Gas and Energy",
     sub: "Upstream · Midstream · Energy Transition",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=85&auto=format&fit=crop",
-    alt: "Oil refinery at dusk — energy sector",
+    image: "https://images.unsplash.com/photo-1588011930968-eadac80e6a5a?w=1400&q=85&auto=format&fit=crop",
+    alt: "Oil refinery tower at twilight — energy infrastructure",
   },
   {
     n: "02",
@@ -21,8 +21,8 @@ const SECTORS = [
     n: "03",
     name: "Network Infrastructure",
     sub: "Telecoms · Fibre · Enterprise Networks",
-    image: "https://images.unsplash.com/photo-1551703599-6b3e8379aa8d?w=1400&q=85&auto=format&fit=crop",
-    alt: "Fibre optic cables and telecom equipment",
+    image: "https://images.unsplash.com/photo-1614508569207-3295ac89d75f?w=1400&q=85&auto=format&fit=crop",
+    alt: "Server and networking infrastructure",
   },
   {
     n: "04",
