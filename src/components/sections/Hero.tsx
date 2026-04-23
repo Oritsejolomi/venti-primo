@@ -53,7 +53,7 @@ export function Hero() {
           objectPosition: "center",
         }}
       >
-        <source src="/hero-lagos-opt.mp4" type="video/mp4" />
+        <source src="/hero-lagos.mp4" type="video/mp4" />
       </video>
 
       <div
