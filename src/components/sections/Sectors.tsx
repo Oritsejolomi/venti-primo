@@ -28,8 +28,8 @@ const SECTORS = [
     n: "04",
     name: "Financial Services",
     sub: "Capital Markets · Structured Finance · Banking",
-    image: "https://images.unsplash.com/photo-1761233138997-44d9b002a08f?w=1400&q=85&auto=format&fit=crop",
-    alt: "New York Stock Exchange — capital markets",
+    image: "https://images.unsplash.com/photo-1648275913341-7973ae7bc9b3?w=1400&q=85&auto=format&fit=crop",
+    alt: "Digital stock ticker close-up — capital markets",
   },
   {
     n: "05",

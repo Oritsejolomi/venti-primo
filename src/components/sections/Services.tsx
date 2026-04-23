@@ -9,8 +9,8 @@ const SERVICES = [
     sub: "Transaction Advisory",
     body: "Sourcing, structuring, and executing investment transactions across energy, infrastructure, and capital markets.",
     image:
-      "https://images.unsplash.com/photo-1569706971306-de5d78f6418e?w=1200&q=85&auto=format&fit=crop",
-    alt: "Aerial view of Lagos — transactions in-market",
+      "https://images.unsplash.com/photo-1603796846097-bee99e4a601f?w=1200&q=85&auto=format&fit=crop",
+    alt: "Hand signing a document — transaction close",
   },
   {
     n: "02",
