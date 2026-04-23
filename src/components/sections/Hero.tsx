@@ -30,18 +30,17 @@ export function Hero() {
         loop
         playsInline
         preload="auto"
-        poster="/hero-poster-v2.jpg"
+        poster="/hero-poster-v3.jpg"
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          width: "115%",
+          inset: 0,
+          width: "100%",
           height: "100%",
           objectFit: "cover",
-          objectPosition: "left center",
+          objectPosition: "center",
         }}
       >
-        <source src="/hero-lagos-v2.mp4" type="video/mp4" />
+        <source src="/hero-lagos-v3.mp4" type="video/mp4" />
       </video>
 
       <div
