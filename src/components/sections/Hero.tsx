@@ -1,25 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Hero() {
   const [in_, setIn] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const t = setTimeout(() => setIn(true), 120);
     return () => clearTimeout(t);
-  }, []);
-
-  useEffect(() => {
-    const vid = videoRef.current;
-    if (!vid) return;
-    vid.currentTime = 1;
-    const handleLoop = () => {
-      if (vid.currentTime < 1) vid.currentTime = 1;
-    };
-    vid.addEventListener("timeupdate", handleLoop);
-    return () => vid.removeEventListener("timeupdate", handleLoop);
   }, []);
 
   return (
@@ -37,12 +25,10 @@ export function Hero() {
       }}
     >
       <video
-        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
-        preload="auto"
         style={{
           position: "absolute",
           inset: 0,
