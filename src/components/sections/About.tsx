@@ -119,8 +119,8 @@ export function About() {
             }}
           >
             <img
-              src="https://images.unsplash.com/photo-1577416412292-747c6607f055?w=900&q=85&auto=format&fit=crop"
-              alt="Lagos skyline at dusk — institutional architecture"
+              src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=85&auto=format&fit=crop"
+              alt="Modern bridge at dusk — the bridge between capital and opportunity"
               style={{
                 width: "100%",
                 height: "100%",
@@ -131,55 +131,6 @@ export function About() {
           </div>
         </div>
 
-        {/* footer credentials row */}
-        <div
-          className="grid grid-cols-2 lg:grid-cols-4"
-          style={{ marginTop: "clamp(64px, 9vh, 96px)" }}
-        >
-          {[
-            { k: "Filing", v: "VP-LAG-001" },
-            { k: "Issuer", v: "Venti Primo Ltd" },
-            { k: "Reg.", v: "SEC Nigeria" },
-            { k: "Offices", v: "Lagos · Abuja · London" },
-          ].map((m, i) => (
-            <div
-              key={m.k}
-              style={{
-                borderTop: "1px solid rgba(10,38,35,0.15)",
-                borderLeft: i % 2 === 1 ? "1px solid rgba(10,38,35,0.1)" : undefined,
-                paddingTop: "var(--space-5)",
-                paddingBottom: "var(--space-6)",
-                paddingLeft: i % 2 === 1 ? "var(--space-5)" : undefined,
-                paddingRight: "var(--space-5)",
-              }}
-            >
-              <div
-                className="font-[family-name:var(--font-data)]"
-                style={{
-                  fontSize: "var(--text-caption)",
-                  letterSpacing: "0.22em",
-                  textTransform: "uppercase",
-                  color: "rgba(10,38,35,0.45)",
-                  marginBottom: "var(--space-3)",
-                }}
-              >
-                {m.k}
-              </div>
-              <div
-                className="font-[family-name:var(--font-display)]"
-                style={{
-                  fontSize: "var(--text-body)",
-                  fontWeight: 400,
-                  letterSpacing: "-0.01em",
-                  color: "#0A2623",
-                  lineHeight: 1.2,
-                }}
-              >
-                {m.v}
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

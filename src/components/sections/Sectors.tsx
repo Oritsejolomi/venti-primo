@@ -7,43 +7,36 @@ const SECTORS = [
     n: "01",
     name: "Oil & Gas and Energy",
     sub: "Upstream · Midstream · Energy Transition",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1400&q=85&auto=format&fit=crop",
-    alt: "Offshore oil platform at sea",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=85&auto=format&fit=crop",
+    alt: "Oil refinery at dusk — energy sector",
   },
   {
     n: "02",
     name: "Infrastructure",
     sub: "Power · Transport · Industrial Logistics",
-    image: "https://images.unsplash.com/photo-1473625247510-8ceb1760943f?w=1400&q=85&auto=format&fit=crop",
-    alt: "Industrial bridge and transport infrastructure",
+    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1400&q=85&auto=format&fit=crop",
+    alt: "High-voltage power transmission towers",
   },
   {
     n: "03",
-    name: "Technology & Digital",
-    sub: "Network Solutions · Data Centres · Connectivity",
-    image: "https://images.unsplash.com/photo-1591808216268-ce0b82787efe?w=1400&q=85&auto=format&fit=crop",
-    alt: "Server racks in a modern data centre",
-  },
-  {
-    n: "04",
     name: "Network Infrastructure",
     sub: "Telecoms · Fibre · Enterprise Networks",
     image: "https://images.unsplash.com/photo-1551703599-6b3e8379aa8d?w=1400&q=85&auto=format&fit=crop",
     alt: "Fibre optic cables and telecom equipment",
   },
   {
-    n: "05",
+    n: "04",
     name: "Financial Services",
     sub: "Capital Markets · Structured Finance · Banking",
-    image: "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=1400&q=85&auto=format&fit=crop",
-    alt: "Financial trading floor screens",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1400&q=85&auto=format&fit=crop",
+    alt: "Financial investment data and capital markets",
   },
   {
-    n: "06",
+    n: "05",
     name: "Global Markets",
     sub: "Cross-Border · Diaspora Investment · FX",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1400&q=85&auto=format&fit=crop",
-    alt: "Global currency trading display",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=85&auto=format&fit=crop",
+    alt: "Illuminated world map — global markets",
   },
 ];
 
@@ -102,7 +95,7 @@ export function Sectors() {
             maxWidth: "1100px",
           }}
         >
-          Six sectors.
+          Five sectors.
           <br />
           <em style={{ fontStyle: "italic", fontWeight: 400 }}>Highest conviction.</em>
         </h2>
