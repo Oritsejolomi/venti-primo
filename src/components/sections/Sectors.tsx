@@ -21,22 +21,22 @@ const SECTORS = [
     n: "03",
     name: "Network Infrastructure",
     sub: "Telecoms · Fibre · Enterprise Networks",
-    image: "https://images.unsplash.com/photo-1614508569207-3295ac89d75f?w=1400&q=85&auto=format&fit=crop",
-    alt: "Server and networking infrastructure",
+    image: "https://images.unsplash.com/photo-1606778303077-3780ea8d5420?w=1400&q=85&auto=format&fit=crop",
+    alt: "Fibre optic light trails — network infrastructure",
   },
   {
     n: "04",
     name: "Financial Services",
     sub: "Capital Markets · Structured Finance · Banking",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1400&q=85&auto=format&fit=crop",
-    alt: "Financial investment data and capital markets",
+    image: "https://images.unsplash.com/photo-1761233138997-44d9b002a08f?w=1400&q=85&auto=format&fit=crop",
+    alt: "New York Stock Exchange — capital markets",
   },
   {
     n: "05",
     name: "Global Markets",
     sub: "Cross-Border · Diaspora Investment · FX",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=85&auto=format&fit=crop",
-    alt: "Illuminated world map — global markets",
+    image: "https://images.unsplash.com/photo-1678182451047-196f22a4143e?w=1400&q=85&auto=format&fit=crop",
+    alt: "Stacked cargo containers at port — global trade flows",
   },
 ];
 

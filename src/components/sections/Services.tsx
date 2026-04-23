@@ -9,8 +9,8 @@ const SERVICES = [
     sub: "Transaction Advisory",
     body: "Sourcing, structuring, and executing investment transactions across energy, infrastructure, and capital markets.",
     image:
-      "https://images.unsplash.com/photo-1554224155-1696413565d3?w=1200&q=85&auto=format&fit=crop",
-    alt: "Financial documents and ledger close-up",
+      "https://images.unsplash.com/photo-1569706971306-de5d78f6418e?w=1200&q=85&auto=format&fit=crop",
+    alt: "Aerial view of Lagos — transactions in-market",
   },
   {
     n: "02",
@@ -18,8 +18,8 @@ const SERVICES = [
     sub: "Investor Access",
     body: "Connecting enterprises to institutional offshore capital through bespoke fundraising mandates and syndicated facilities.",
     image:
-      "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=85&auto=format&fit=crop",
-    alt: "Stacked institutional documents",
+      "https://images.unsplash.com/photo-1773122038166-f6c822a99c4f?w=1200&q=85&auto=format&fit=crop",
+    alt: "Silhouetted skyscraper against dramatic sky — institutional capital",
   },
   {
     n: "03",
@@ -36,8 +36,8 @@ const SERVICES = [
     sub: "Discretionary Mandates",
     body: "Bespoke investment solutions and portfolio advisory for high-net-worth individuals and family offices.",
     image:
-      "https://images.unsplash.com/photo-1566041510394-cf7c8fe21800?w=1200&q=85&auto=format&fit=crop",
-    alt: "White marble surface — institutional private wealth",
+      "https://images.unsplash.com/photo-1634140704051-58a787556cd1?w=1200&q=85&auto=format&fit=crop",
+    alt: "Luxury timepiece on black presentation box — institutional private wealth",
   },
 ];
 
