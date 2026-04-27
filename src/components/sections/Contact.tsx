@@ -12,6 +12,29 @@ const TYPES = [
   "Media",
 ];
 
+const SECTOR_OPTIONS = [
+  "Oil & Gas and Energy",
+  "Infrastructure",
+  "Network Infrastructure",
+  "Financial Services",
+  "Global Markets",
+  "Other",
+];
+
+const TICKET_BANDS = [
+  "Under $500k",
+  "$500k–$2M",
+  "$2M–$10M",
+  "$10M+",
+];
+
+const STAGES = [
+  "Seed",
+  "Series A",
+  "Growth",
+  "Mature",
+];
+
 const inputBase: React.CSSProperties = {
   width: "100%",
   background: "transparent",
@@ -27,34 +50,39 @@ const inputBase: React.CSSProperties = {
   borderRadius: 0,
 };
 
+const labelStyle: React.CSSProperties = {
+  fontSize: "10px",
+  letterSpacing: "0.22em",
+  textTransform: "uppercase",
+  color: "rgba(10,38,35,0.55)",
+};
+
 function Field({
   label,
   type = "text",
   placeholder,
   required,
+  value,
+  onChange,
 }: {
   label: string;
   type?: string;
   placeholder?: string;
   required?: boolean;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-      <label
-        className="font-[family-name:var(--font-data)]"
-        style={{
-          fontSize: "10px",
-          letterSpacing: "0.22em",
-          textTransform: "uppercase",
-          color: "rgba(10,38,35,0.55)",
-        }}
-      >
+      <label className="font-[family-name:var(--font-data)]" style={labelStyle}>
         {label}
       </label>
       <input
         type={type}
         required={required}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
         onFocus={(e) => {
           e.currentTarget.style.borderColor = "#0A2623";
         }}
@@ -68,10 +96,63 @@ function Field({
   );
 }
 
+function Select({
+  label,
+  value,
+  onChange,
+  options,
+  required,
+  placeholder,
+}: {
+  label: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  options: readonly string[];
+  required?: boolean;
+  placeholder: string;
+}) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+      <label className="font-[family-name:var(--font-data)]" style={labelStyle}>
+        {label}
+      </label>
+      <select
+        value={value}
+        onChange={onChange}
+        required={required}
+        style={{ ...inputBase, appearance: "none", cursor: "pointer" }}
+        className="font-[family-name:var(--font-body)]"
+        onFocus={(e) => {
+          e.currentTarget.style.borderColor = "#0A2623";
+        }}
+        onBlur={(e) => {
+          e.currentTarget.style.borderColor = "rgba(10,38,35,0.2)";
+        }}
+      >
+        <option value="" disabled style={{ background: "#F0EBE3", color: "rgba(10,38,35,0.4)" }}>
+          {placeholder}
+        </option>
+        {options.map((o) => (
+          <option key={o} value={o} style={{ background: "#F0EBE3", color: "#0A2623" }}>
+            {o}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 export function Contact() {
   const [type, setType] = useState("General Enquiry");
+  const [sector, setSector] = useState("");
+  const [otherSector, setOtherSector] = useState("");
+  const [ticket, setTicket] = useState("");
+  const [stage, setStage] = useState("");
   const [done, setDone] = useState(false);
   const [busy, setBusy] = useState(false);
+
+  const isStructured = type === "Investment Opportunity" || type === "Capital Raising";
+  const ticketLabel = type === "Capital Raising" ? "Amount Sought" : "Ticket Size";
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -327,34 +408,70 @@ export function Contact() {
                   </select>
                 </div>
 
-                <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                  <label
-                    className="font-[family-name:var(--font-data)]"
-                    style={{
-                      fontSize: "10px",
-                      letterSpacing: "0.22em",
-                      textTransform: "uppercase",
-                      color: "rgba(10,38,35,0.55)",
-                    }}
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    rows={4}
-                    required
-                    placeholder="Tell us about your enquiry..."
-                    style={{ ...inputBase, resize: "vertical", lineHeight: 1.6 }}
-                    className="placeholder:text-[rgba(10,38,35,0.3)] font-[family-name:var(--font-body)]"
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "#0A2623";
-                    }}
-                    onBlur={(e) => {
-                      e.currentTarget.style.borderColor = "rgba(10,38,35,0.2)";
-                    }}
-                  />
-                </div>
+                {isStructured ? (
+                  <>
+                    <Select
+                      label="Sector"
+                      value={sector}
+                      onChange={(e) => setSector(e.target.value)}
+                      options={SECTOR_OPTIONS}
+                      required
+                      placeholder="Select a sector"
+                    />
+                    {sector === "Other" && (
+                      <Field
+                        label="Specify Sector"
+                        placeholder="Sector name"
+                        required
+                        value={otherSector}
+                        onChange={(e) => setOtherSector(e.target.value)}
+                      />
+                    )}
+                    <Select
+                      label={ticketLabel}
+                      value={ticket}
+                      onChange={(e) => setTicket(e.target.value)}
+                      options={TICKET_BANDS}
+                      required
+                      placeholder="Select a range"
+                    />
+                    <Select
+                      label="Stage"
+                      value={stage}
+                      onChange={(e) => setStage(e.target.value)}
+                      options={STAGES}
+                      required
+                      placeholder="Select a stage"
+                    />
+                  </>
+                ) : (
+                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                    <label className="font-[family-name:var(--font-data)]" style={labelStyle}>
+                      Message
+                    </label>
+                    <textarea
+                      rows={1}
+                      required
+                      placeholder="Tell us about your enquiry..."
+                      style={{
+                        ...inputBase,
+                        resize: "none",
+                        lineHeight: 1.6,
+                        minHeight: "44px",
+                        fieldSizing: "content",
+                      } as React.CSSProperties}
+                      className="placeholder:text-[rgba(10,38,35,0.3)] font-[family-name:var(--font-body)]"
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = "#0A2623";
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = "rgba(10,38,35,0.2)";
+                      }}
+                    />
+                  </div>
+                )}
 
-                <div style={{ marginTop: "16px" }}>
+                <div style={{ marginTop: "16px", display: "flex", flexDirection: "column", gap: "12px", alignItems: "flex-start" }}>
                   <button
                     type="submit"
                     disabled={busy}
@@ -381,6 +498,16 @@ export function Contact() {
                   >
                     {busy ? "Sending…" : "Send Message"}
                   </button>
+                  <div
+                    className="font-[family-name:var(--font-body)]"
+                    style={{
+                      fontSize: "12px",
+                      color: "rgba(10,38,35,0.55)",
+                      letterSpacing: "0.01em",
+                    }}
+                  >
+                    Reviewed by a partner · Response within 2 working days.
+                  </div>
                 </div>
               </>
             )}
