@@ -94,9 +94,7 @@ export function Sectors() {
             maxWidth: "1100px",
           }}
         >
-          Five sectors.
-          <br />
-          <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>Highest conviction.</em>
+          Five sectors. <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>Highest conviction.</em>
         </h2>
 
         <div
@@ -128,7 +126,7 @@ export function Sectors() {
                       borderBottom: "1px solid rgba(10,38,35,0.14)",
                       color: "inherit",
                       display: "grid",
-                      gridTemplateColumns: "44px 1fr auto",
+                      gridTemplateColumns: "44px 1fr",
                       gap: "var(--space-4)",
                       alignItems: "center",
                       transition: "padding-left 280ms ease",
@@ -157,17 +155,6 @@ export function Sectors() {
                       }}
                     >
                       {s.name}
-                    </span>
-                    <span
-                      className="font-[family-name:var(--font-display)]"
-                      style={{
-                        fontSize: "var(--text-h4)",
-                        color: isActive ? "#0D9488" : "rgba(10,38,35,0.25)",
-                        transition: "color 280ms ease, transform 280ms ease",
-                        transform: isActive ? "translateX(4px)" : "none",
-                      }}
-                    >
-                      →
                     </span>
                   </button>
                   {/* Image + sub-category inline — mobile only */}

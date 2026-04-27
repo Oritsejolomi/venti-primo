@@ -34,7 +34,7 @@ export function About() {
             letterSpacing: "0.28em",
             textTransform: "uppercase",
             color: "#D4A853",
-            marginBottom: "var(--space-9)",
+            marginBottom: "var(--space-7)",
           }}
         >
           02 Who we are
@@ -60,9 +60,7 @@ export function About() {
                 marginBottom: "var(--space-7)",
               }}
             >
-              The bridge
-              <br />
-              between capital
+              The bridge between capital
               <br />
               <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>and opportunity.</em>
             </h2>
@@ -92,17 +90,17 @@ export function About() {
                 fontWeight: 500,
                 letterSpacing: "0.04em",
                 color: "#F0EBE3",
-                background: "#0A2623",
+                background: "#0D9488",
                 padding: "16px 36px",
                 borderRadius: "9999px",
                 textDecoration: "none",
                 display: "inline-block",
                 transition: "background 200ms ease",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#134E4A")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#0A2623")}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#0F766E")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#0D9488")}
             >
-              Our Practices →
+              Our Practices
             </a>
           </div>
 

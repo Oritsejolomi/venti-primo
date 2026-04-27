@@ -53,7 +53,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             href="/insights"
             className="font-[family-name:var(--font-body)] text-[13px] text-[var(--color-haze)] hover:text-[var(--color-cobalt)] transition-colors mb-10 inline-flex items-center gap-2 no-underline"
           >
-            ← All Insights
+            All Insights
           </Link>
 
           <div className="max-w-[760px] mt-8">

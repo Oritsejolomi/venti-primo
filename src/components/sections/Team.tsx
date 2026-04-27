@@ -64,11 +64,7 @@ export function Team() {
                 color: "#F0EBE3",
               }}
             >
-              The people
-              <br />
-              behind
-              <br />
-              <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>the platform.</em>
+              The people behind <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>the platform.</em>
             </h2>
 
             <div

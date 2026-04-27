@@ -65,9 +65,7 @@ export function TrackRecord() {
             maxWidth: "1100px",
           }}
         >
-          Execution
-          <br />
-          <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>over claims.</em>
+          Execution <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>over claims.</em>
         </h2>
 
         {/* Oversized stats — stacked vertical pairs */}

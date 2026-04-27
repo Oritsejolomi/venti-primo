@@ -92,9 +92,7 @@ export function Insights() {
               maxWidth: "1100px",
             }}
           >
-            Market commentary
-            <br />
-            <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>and intelligence.</em>
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>Market commentary.</em>
           </h2>
 
           <Link
@@ -116,7 +114,7 @@ export function Insights() {
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#134E4A")}
             onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#0A2623")}
           >
-            All insights →
+            All insights
           </Link>
         </div>
 
@@ -292,7 +290,7 @@ function SecondaryArticle({
           letterSpacing: "0.02em",
         }}
       >
-        Read article →
+        Read article
       </div>
     </Link>
   );

@@ -95,9 +95,7 @@ export function Services() {
             maxWidth: "1100px",
           }}
         >
-          Four practices.
-          <br />
-          <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>One platform.</em>
+          Four practices. <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>One platform.</em>
         </h2>
 
         {/* main split: image left, list right */}
@@ -193,7 +191,7 @@ export function Services() {
                       borderBottom: "1px solid rgba(240,235,227,0.12)",
                       color: "inherit",
                       display: "grid",
-                      gridTemplateColumns: "44px 1fr auto",
+                      gridTemplateColumns: "44px 1fr",
                       gap: "var(--space-5)",
                       alignItems: "center",
                       transition: "padding-left 280ms ease",
@@ -222,17 +220,6 @@ export function Services() {
                       }}
                     >
                       {s.title}
-                    </span>
-                    <span
-                      className="font-[family-name:var(--font-display)]"
-                      style={{
-                        fontSize: "var(--text-h4)",
-                        color: isActive ? "#5EEAD4" : "rgba(240,235,227,0.3)",
-                        transition: "color 280ms ease, transform 280ms ease",
-                        transform: isActive ? "translateX(4px)" : "none",
-                      }}
-                    >
-                      →
                     </span>
                   </button>
                   {/* Image + body inline — mobile only */}

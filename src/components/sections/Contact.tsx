@@ -381,7 +381,7 @@ export function Contact() {
                       if (!busy) (e.currentTarget as HTMLElement).style.background = "#0A2623";
                     }}
                   >
-                    {busy ? "Sending…" : "Send Message →"}
+                    {busy ? "Sending…" : "Send Message"}
                   </button>
                 </div>
               </>
