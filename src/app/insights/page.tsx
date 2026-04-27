@@ -44,7 +44,7 @@ export default function InsightsPage() {
           <h1 className="font-[family-name:var(--font-display)] text-[40px] md:text-[52px] font-bold leading-[1.15] tracking-tight text-[var(--color-parchment)] mb-4 max-w-[640px]">
             Market commentary and deal intelligence.
           </h1>
-          <p className="text-[var(--color-haze)] text-[15px] max-w-[560px] mb-12">
+          <p className="text-[#A0BEC0] text-[15px] max-w-[560px] mb-12">
             Nigeria macro, sector outlook, FX developments, deal insights, technology briefings, and investor notes.
           </p>
 
@@ -55,8 +55,8 @@ export default function InsightsPage() {
                 key={c}
                 className={`font-[family-name:var(--font-body)] text-[13px] px-4 py-1.5 rounded-full border cursor-pointer transition-colors ${
                   c === "All"
-                    ? "border-[var(--color-cobalt)] text-[var(--color-cobalt)] bg-[rgba(37,99,235,0.08)]"
-                    : "border-[rgba(160,180,200,0.2)] text-[var(--color-haze)] hover:border-[var(--color-cobalt)] hover:text-[var(--color-cobalt)]"
+                    ? "border-[var(--color-teal)] text-[var(--color-teal)] bg-[rgba(13,148,136,0.08)]"
+                    : "border-[rgba(160,180,200,0.2)] text-[#A0BEC0] hover:border-[var(--color-teal)] hover:text-[var(--color-teal)]"
                 }`}
               >
                 {c}
@@ -69,24 +69,24 @@ export default function InsightsPage() {
               <a
                 key={a.href}
                 href={a.href}
-                className="group bg-[var(--color-deep-water)] border border-[rgba(37,99,235,0.1)] rounded-lg p-8 flex flex-col gap-4 hover:border-[var(--color-cobalt)] transition-colors duration-200 no-underline"
+                className="group bg-[var(--color-deep-water)] border border-[rgba(13,148,136,0.1)] rounded-lg p-8 flex flex-col gap-4 hover:border-[var(--color-teal)] transition-colors duration-200 no-underline"
               >
                 <div className="flex items-center gap-3">
-                  <span className="font-[family-name:var(--font-data)] text-[12px] text-[var(--color-mist)]">
+                  <span className="font-[family-name:var(--font-data)] text-[12px] text-[#7A9A9C]">
                     {a.date}
                   </span>
-                  <span className="w-1 h-1 rounded-full bg-[var(--color-mist)]" />
-                  <span className="font-[family-name:var(--font-body)] text-[12px] text-[var(--color-cobalt)] uppercase tracking-[0.06em]">
+                  <span className="w-1 h-1 rounded-full bg-[#7A9A9C]" />
+                  <span className="font-[family-name:var(--font-body)] text-[12px] text-[var(--color-teal)] uppercase tracking-[0.06em]">
                     {a.category}
                   </span>
                 </div>
                 <h2 className="font-[family-name:var(--font-display)] text-[20px] font-medium leading-[1.3] text-[var(--color-parchment)] flex-1">
                   {a.title}
                 </h2>
-                <p className="font-[family-name:var(--font-body)] text-[14px] text-[var(--color-haze)] leading-[1.6]">
+                <p className="font-[family-name:var(--font-body)] text-[14px] text-[#A0BEC0] leading-[1.6]">
                   {a.excerpt}
                 </p>
-                <span className="font-[family-name:var(--font-body)] text-[14px] font-medium text-[var(--color-cobalt)] group-hover:underline">
+                <span className="font-[family-name:var(--font-body)] text-[14px] font-medium text-[var(--color-teal)] group-hover:underline">
                   Read more
                 </span>
               </a>
