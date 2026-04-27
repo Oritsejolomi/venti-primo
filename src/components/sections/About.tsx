@@ -33,12 +33,11 @@ export function About() {
             fontSize: "var(--text-caption)",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(10,38,35,0.5)",
+            color: "#D4A853",
             marginBottom: "var(--space-9)",
           }}
         >
-          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(10,38,35,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
-          § 02 — Who we are
+          02 Who we are
         </div>
 
         {/* main editorial split */}

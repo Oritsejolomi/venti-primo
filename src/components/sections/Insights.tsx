@@ -67,12 +67,11 @@ export function Insights() {
             fontSize: "var(--text-caption)",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(10,38,35,0.5)",
+            color: "#D4A853",
             marginBottom: "var(--space-7)",
           }}
         >
-          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(10,38,35,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
-          § 06 — Insights
+          06 Insights
         </div>
 
         <div

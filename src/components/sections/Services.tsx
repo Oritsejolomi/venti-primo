@@ -76,12 +76,11 @@ export function Services() {
             fontSize: "var(--text-caption)",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(240,235,227,0.5)",
+            color: "#D4A853",
             marginBottom: "var(--space-5)",
           }}
         >
-          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(240,235,227,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
-          § 03 — What we do
+          03 What we do
         </div>
 
         <h2

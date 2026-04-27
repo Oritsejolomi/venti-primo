@@ -46,12 +46,11 @@ export function TrackRecord() {
             fontSize: "var(--text-caption)",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(240,235,227,0.5)",
+            color: "#D4A853",
             marginBottom: "var(--space-7)",
           }}
         >
-          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(240,235,227,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
-          § 05 — Track record
+          05 Track record
         </div>
 
         <h2
