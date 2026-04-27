@@ -84,38 +84,16 @@ export function Insights() {
           <h2
             className="font-[family-name:var(--font-display)]"
             style={{
-              fontSize: "var(--text-display-sm)",
+              fontSize: "var(--text-h1)",
               fontWeight: 400,
-              lineHeight: 0.96,
-              letterSpacing: "-0.025em",
+              lineHeight: 1.2,
+              letterSpacing: "-0.02em",
               color: "#0A2623",
               maxWidth: "1100px",
             }}
           >
-            <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>Market commentary.</em>
+            Market commentary.
           </h2>
-
-          <Link
-            href="/insights"
-            className="font-[family-name:var(--font-body)]"
-            style={{
-              fontSize: "var(--text-small)",
-              fontWeight: 500,
-              letterSpacing: "0.04em",
-              color: "#F0EBE3",
-              background: "#0A2623",
-              padding: "var(--space-3) var(--space-6)",
-              borderRadius: "9999px",
-              textDecoration: "none",
-              display: "inline-block",
-              transition: "background 200ms ease",
-              alignSelf: "flex-start",
-            }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#134E4A")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#0A2623")}
-          >
-            All insights
-          </Link>
         </div>
 
         {/* Featured + secondary stack */}

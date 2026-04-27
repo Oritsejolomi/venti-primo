@@ -57,14 +57,14 @@ export function Team() {
             <h2
               className="font-[family-name:var(--font-display)]"
               style={{
-                fontSize: "var(--text-display-sm)",
+                fontSize: "var(--text-h1)",
                 fontWeight: 400,
-                lineHeight: 0.96,
-                letterSpacing: "-0.025em",
+                lineHeight: 1.2,
+                letterSpacing: "-0.02em",
                 color: "#F0EBE3",
               }}
             >
-              The people behind <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>the platform.</em>
+              The people behind the platform.
             </h2>
 
             <div

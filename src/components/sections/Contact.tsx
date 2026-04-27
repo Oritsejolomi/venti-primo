@@ -130,17 +130,15 @@ export function Contact() {
             <h2
               className="font-[family-name:var(--font-display)]"
               style={{
-                fontSize: "var(--text-display)",
+                fontSize: "var(--text-h1)",
                 fontWeight: 400,
-                lineHeight: 0.95,
-                letterSpacing: "-0.03em",
+                lineHeight: 1.2,
+                letterSpacing: "-0.02em",
                 color: "#0A2623",
                 marginBottom: "var(--space-7)",
               }}
             >
-              Let&apos;s
-              <br />
-              <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>talk.</em>
+              Let&apos;s talk.
             </h2>
 
             <p

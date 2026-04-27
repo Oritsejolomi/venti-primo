@@ -85,16 +85,18 @@ export function Sectors() {
         <h2
           className="font-[family-name:var(--font-display)]"
           style={{
-            fontSize: "var(--text-display-sm)",
+            fontSize: "var(--text-h1)",
             fontWeight: 400,
-            lineHeight: 0.96,
-            letterSpacing: "-0.025em",
+            lineHeight: 1.2,
+            letterSpacing: "-0.02em",
             color: "#0A2623",
             marginBottom: "var(--space-7)",
             maxWidth: "1100px",
           }}
         >
-          Five sectors. <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>Highest conviction.</em>
+          Five sectors,
+          <br />
+          High Conviction.
         </h2>
 
         <div
@@ -200,7 +202,8 @@ export function Sectors() {
             className="hidden lg:block"
             style={{
               position: "relative",
-              aspectRatio: "3/4",
+              height: "100%",
+              minHeight: "320px",
               maxHeight: "640px",
               overflow: "hidden",
               borderRadius: "2px",

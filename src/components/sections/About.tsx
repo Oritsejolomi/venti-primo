@@ -52,17 +52,15 @@ export function About() {
             <h2
               className="font-[family-name:var(--font-display)]"
               style={{
-                fontSize: "var(--text-display-sm)",
+                fontSize: "var(--text-h1)",
                 fontWeight: 400,
-                lineHeight: 0.96,
-                letterSpacing: "-0.025em",
+                lineHeight: 1.2,
+                letterSpacing: "-0.02em",
                 color: "#0A2623",
                 marginBottom: "var(--space-7)",
               }}
             >
-              The bridge between capital
-              <br />
-              <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>and opportunity.</em>
+              The bridge between capital and opportunity.
             </h2>
 
             <p

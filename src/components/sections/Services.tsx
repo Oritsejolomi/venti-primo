@@ -86,16 +86,16 @@ export function Services() {
         <h2
           className="font-[family-name:var(--font-display)]"
           style={{
-            fontSize: "var(--text-display-sm)",
+            fontSize: "var(--text-h1)",
             fontWeight: 400,
-            lineHeight: 0.96,
-            letterSpacing: "-0.025em",
+            lineHeight: 1.2,
+            letterSpacing: "-0.02em",
             color: "#F0EBE3",
             marginBottom: "var(--space-7)",
             maxWidth: "1100px",
           }}
         >
-          Four practices. <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>One platform.</em>
+          Four practices. One platform.
         </h2>
 
         {/* main split: image left, list right */}
@@ -108,7 +108,8 @@ export function Services() {
             className="hidden lg:block"
             style={{
               position: "relative",
-              aspectRatio: "3/4",
+              height: "100%",
+              minHeight: "320px",
               maxHeight: "640px",
               overflow: "hidden",
               borderRadius: "2px",
