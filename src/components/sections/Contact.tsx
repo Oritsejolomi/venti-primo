@@ -140,7 +140,7 @@ export function Contact() {
             >
               Let&apos;s
               <br />
-              <em style={{ fontStyle: "italic", fontWeight: 400 }}>talk.</em>
+              <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>talk.</em>
             </h2>
 
             <p

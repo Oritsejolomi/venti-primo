@@ -96,7 +96,7 @@ export function Sectors() {
         >
           Five sectors.
           <br />
-          <em style={{ fontStyle: "italic", fontWeight: 400 }}>Highest conviction.</em>
+          <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>Highest conviction.</em>
         </h2>
 
         <div

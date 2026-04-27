@@ -64,7 +64,7 @@ export function About() {
               <br />
               between capital
               <br />
-              <em style={{ fontStyle: "italic", fontWeight: 400 }}>and opportunity.</em>
+              <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>and opportunity.</em>
             </h2>
 
             <p

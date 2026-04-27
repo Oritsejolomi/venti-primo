@@ -97,7 +97,7 @@ export function Services() {
         >
           Four practices.
           <br />
-          <em style={{ fontStyle: "italic", fontWeight: 400 }}>One platform.</em>
+          <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>One platform.</em>
         </h2>
 
         {/* main split: image left, list right */}

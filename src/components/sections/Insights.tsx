@@ -94,7 +94,7 @@ export function Insights() {
           >
             Market commentary
             <br />
-            <em style={{ fontStyle: "italic", fontWeight: 400 }}>and intelligence.</em>
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>and intelligence.</em>
           </h2>
 
           <Link

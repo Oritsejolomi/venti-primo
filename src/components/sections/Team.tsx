@@ -68,7 +68,7 @@ export function Team() {
               <br />
               behind
               <br />
-              <em style={{ fontStyle: "italic", fontWeight: 400 }}>the platform.</em>
+              <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>the platform.</em>
             </h2>
 
             <div
@@ -98,27 +98,6 @@ export function Team() {
                   background: "linear-gradient(180deg, rgba(10,38,35,0.05) 0%, rgba(10,38,35,0.55) 100%)",
                 }}
               />
-              <div
-                style={{
-                  position: "absolute",
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  padding: "32px",
-                }}
-              >
-                <div
-                  className="font-[family-name:var(--font-data)]"
-                  style={{
-                    fontSize: "10px",
-                    letterSpacing: "0.22em",
-                    textTransform: "uppercase",
-                    color: "rgba(240,235,227,0.7)",
-                  }}
-                >
-                  Lagos boardroom
-                </div>
-              </div>
             </div>
           </div>
 

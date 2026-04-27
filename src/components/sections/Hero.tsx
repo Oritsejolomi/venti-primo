@@ -101,7 +101,7 @@ export function Hero() {
           >
             Build.<br />
             Fund.<br />
-            <em style={{ fontStyle: "italic", fontWeight: 400 }}>Scale.</em>
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>Scale.</em>
           </h1>
         </div>
       </div>

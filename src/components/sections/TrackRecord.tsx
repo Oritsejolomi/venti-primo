@@ -67,7 +67,7 @@ export function TrackRecord() {
         >
           Execution
           <br />
-          <em style={{ fontStyle: "italic", fontWeight: 400 }}>over claims.</em>
+          <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>over claims.</em>
         </h2>
 
         {/* Oversized stats — stacked vertical pairs */}
@@ -103,7 +103,7 @@ export function TrackRecord() {
                   fontWeight: 400,
                   lineHeight: 0.95,
                   letterSpacing: "-0.04em",
-                  color: "#F0EBE3",
+                  color: "#D4A853",
                   marginBottom: "var(--space-3)",
                 }}
               >
@@ -179,7 +179,7 @@ export function TrackRecord() {
                 style={{
                   fontSize: "var(--text-caption)",
                   letterSpacing: "0.05em",
-                  color: "rgba(240,235,227,0.78)",
+                  color: "#D4A853",
                 }}
               >
                 {d.year}
