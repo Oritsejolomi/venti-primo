@@ -51,18 +51,18 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <Container>
           <Link
             href="/insights"
-            className="font-[family-name:var(--font-body)] text-[13px] text-[var(--color-haze)] hover:text-[var(--color-cobalt)] transition-colors mb-10 inline-flex items-center gap-2 no-underline"
+            className="font-[family-name:var(--font-body)] text-[13px] text-[#A0BEC0] hover:text-[var(--color-teal)] transition-colors mb-10 inline-flex items-center gap-2 no-underline"
           >
             All Insights
           </Link>
 
           <div className="max-w-[760px] mt-8">
             <div className="flex items-center gap-3 mb-6">
-              <span className="font-[family-name:var(--font-data)] text-[12px] text-[var(--color-mist)]">
+              <span className="font-[family-name:var(--font-data)] text-[12px] text-[#7A9A9C]">
                 {article.date}
               </span>
-              <span className="w-1 h-1 rounded-full bg-[var(--color-mist)]" />
-              <span className="font-[family-name:var(--font-body)] text-[12px] text-[var(--color-cobalt)] uppercase tracking-[0.06em]">
+              <span className="w-1 h-1 rounded-full bg-[#7A9A9C]" />
+              <span className="font-[family-name:var(--font-body)] text-[12px] text-[var(--color-teal)] uppercase tracking-[0.06em]">
                 {article.category}
               </span>
             </div>
@@ -73,7 +73,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
             <div className="h-px bg-[rgba(160,180,200,0.15)] mb-10" />
 
-            <div className="font-[family-name:var(--font-body)] text-[15px] leading-[1.7] text-[var(--color-haze)] max-w-[680px]">
+            <div className="font-[family-name:var(--font-body)] text-[15px] leading-[1.7] text-[#A0BEC0] max-w-[680px]">
               <p>{article.body}</p>
             </div>
           </div>
