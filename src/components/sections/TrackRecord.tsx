@@ -46,29 +46,26 @@ export function TrackRecord() {
             fontSize: "var(--text-caption)",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(240,235,227,0.5)",
+            color: "#D4A853",
             marginBottom: "var(--space-7)",
           }}
         >
-          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(240,235,227,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
-          § 05 — Track record
+          05 Track record
         </div>
 
         <h2
           className="font-[family-name:var(--font-display)]"
           style={{
-            fontSize: "var(--text-display-sm)",
+            fontSize: "var(--text-h1)",
             fontWeight: 400,
-            lineHeight: 0.96,
-            letterSpacing: "-0.025em",
+            lineHeight: 1.2,
+            letterSpacing: "-0.02em",
             color: "#F0EBE3",
             marginBottom: "var(--space-10)",
             maxWidth: "1100px",
           }}
         >
-          Execution
-          <br />
-          <em style={{ fontStyle: "italic", fontWeight: 400 }}>over claims.</em>
+          Execution over claims.
         </h2>
 
         {/* Oversized stats — stacked vertical pairs */}
@@ -104,7 +101,7 @@ export function TrackRecord() {
                   fontWeight: 400,
                   lineHeight: 0.95,
                   letterSpacing: "-0.04em",
-                  color: "#F0EBE3",
+                  color: "#D4A853",
                   marginBottom: "var(--space-3)",
                 }}
               >
@@ -180,7 +177,7 @@ export function TrackRecord() {
                 style={{
                   fontSize: "var(--text-caption)",
                   letterSpacing: "0.05em",
-                  color: "rgba(240,235,227,0.78)",
+                  color: "#D4A853",
                 }}
               >
                 {d.year}

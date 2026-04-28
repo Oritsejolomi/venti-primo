@@ -33,12 +33,11 @@ export function About() {
             fontSize: "var(--text-caption)",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(10,38,35,0.5)",
-            marginBottom: "var(--space-9)",
+            color: "#D4A853",
+            marginBottom: "var(--space-7)",
           }}
         >
-          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(10,38,35,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
-          § 02 — Who we are
+          02 Who we are
         </div>
 
         {/* main editorial split */}
@@ -53,19 +52,15 @@ export function About() {
             <h2
               className="font-[family-name:var(--font-display)]"
               style={{
-                fontSize: "var(--text-display-sm)",
+                fontSize: "var(--text-h1)",
                 fontWeight: 400,
-                lineHeight: 0.96,
-                letterSpacing: "-0.025em",
+                lineHeight: 1.2,
+                letterSpacing: "-0.02em",
                 color: "#0A2623",
                 marginBottom: "var(--space-7)",
               }}
             >
-              The bridge
-              <br />
-              between capital
-              <br />
-              <em style={{ fontStyle: "italic", fontWeight: 400 }}>and opportunity.</em>
+              The bridge between capital and opportunity.
             </h2>
 
             <p
@@ -93,17 +88,17 @@ export function About() {
                 fontWeight: 500,
                 letterSpacing: "0.04em",
                 color: "#F0EBE3",
-                background: "#0A2623",
+                background: "#115E59",
                 padding: "16px 36px",
                 borderRadius: "9999px",
                 textDecoration: "none",
                 display: "inline-block",
                 transition: "background 200ms ease",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#134E4A")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#0A2623")}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#0D9488")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#115E59")}
             >
-              Our Practices →
+              Our Practices
             </a>
           </div>
 

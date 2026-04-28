@@ -93,7 +93,7 @@ export function Nav() {
             }}
           >
             <img
-              src={isDark ? "/logomark-parchment.png" : "/logomark-teal.png"}
+              src="/logomark-teal.png"
               alt=""
               aria-hidden="true"
               style={{ height: "20px", width: "auto", display: "block", transition: "opacity 400ms ease" }}
@@ -137,32 +137,8 @@ export function Nav() {
             ))}
           </nav>
 
-          {/* Right side: enquire + hamburger */}
+          {/* Right side: hamburger */}
           <div className="flex items-center" style={{ gap: "var(--space-4)" }}>
-            <a
-              href="#contact"
-              className="hidden lg:inline-block font-[family-name:var(--font-body)]"
-              style={{
-                fontSize: "var(--text-small)",
-                fontWeight: 500,
-                letterSpacing: "0.04em",
-                padding: "var(--space-3) var(--space-5)",
-                borderRadius: "9999px",
-                background: isDark ? "#F0EBE3" : "#0A2623",
-                color: isDark ? "#0A2623" : "#F0EBE3",
-                textDecoration: "none",
-                transition: "all 200ms ease",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = isDark ? "#FFFFFF" : "#134E4A";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.background = isDark ? "#F0EBE3" : "#0A2623";
-              }}
-            >
-              Enquire
-            </a>
-
             {/* Hamburger — mobile only */}
             <button
               className="flex lg:hidden"

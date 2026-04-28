@@ -76,29 +76,26 @@ export function Services() {
             fontSize: "var(--text-caption)",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(240,235,227,0.5)",
+            color: "#D4A853",
             marginBottom: "var(--space-5)",
           }}
         >
-          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(240,235,227,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
-          § 03 — What we do
+          03 What we do
         </div>
 
         <h2
           className="font-[family-name:var(--font-display)]"
           style={{
-            fontSize: "var(--text-display-sm)",
+            fontSize: "var(--text-h1)",
             fontWeight: 400,
-            lineHeight: 0.96,
-            letterSpacing: "-0.025em",
+            lineHeight: 1.2,
+            letterSpacing: "-0.02em",
             color: "#F0EBE3",
             marginBottom: "var(--space-7)",
             maxWidth: "1100px",
           }}
         >
-          Four practices.
-          <br />
-          <em style={{ fontStyle: "italic", fontWeight: 400 }}>One platform.</em>
+          Four practices. One platform.
         </h2>
 
         {/* main split: image left, list right */}
@@ -111,7 +108,8 @@ export function Services() {
             className="hidden lg:block"
             style={{
               position: "relative",
-              aspectRatio: "3/4",
+              height: "100%",
+              minHeight: "320px",
               maxHeight: "640px",
               overflow: "hidden",
               borderRadius: "2px",
@@ -194,7 +192,7 @@ export function Services() {
                       borderBottom: "1px solid rgba(240,235,227,0.12)",
                       color: "inherit",
                       display: "grid",
-                      gridTemplateColumns: "44px 1fr auto",
+                      gridTemplateColumns: "44px 1fr",
                       gap: "var(--space-5)",
                       alignItems: "center",
                       transition: "padding-left 280ms ease",
@@ -223,17 +221,6 @@ export function Services() {
                       }}
                     >
                       {s.title}
-                    </span>
-                    <span
-                      className="font-[family-name:var(--font-display)]"
-                      style={{
-                        fontSize: "var(--text-h4)",
-                        color: isActive ? "#5EEAD4" : "rgba(240,235,227,0.3)",
-                        transition: "color 280ms ease, transform 280ms ease",
-                        transform: isActive ? "translateX(4px)" : "none",
-                      }}
-                    >
-                      →
                     </span>
                   </button>
                   {/* Image + body inline — mobile only */}

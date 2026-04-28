@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     description:
       "Venti Primo is a diversified holding company providing deal origination, capital raising, technology infrastructure, and private wealth management across Africa's highest-conviction markets.",
   },
+  icons: {
+    icon: "/logomark-teal.png",
+    apple: "/logomark-teal.png",
+  },
 };
 
 export default function RootLayout({

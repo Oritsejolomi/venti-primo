@@ -39,12 +39,11 @@ export function Team() {
             fontSize: "var(--text-caption)",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(240,235,227,0.5)",
+            color: "#D4A853",
             marginBottom: "var(--space-7)",
           }}
         >
-          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(240,235,227,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
-          § 07 — Our team
+          07 Our team
         </div>
 
         <div
@@ -58,18 +57,14 @@ export function Team() {
             <h2
               className="font-[family-name:var(--font-display)]"
               style={{
-                fontSize: "var(--text-display-sm)",
+                fontSize: "var(--text-h1)",
                 fontWeight: 400,
-                lineHeight: 0.96,
-                letterSpacing: "-0.025em",
+                lineHeight: 1.2,
+                letterSpacing: "-0.02em",
                 color: "#F0EBE3",
               }}
             >
-              The people
-              <br />
-              behind
-              <br />
-              <em style={{ fontStyle: "italic", fontWeight: 400 }}>the platform.</em>
+              The people behind the platform.
             </h2>
 
             <div
@@ -99,27 +94,6 @@ export function Team() {
                   background: "linear-gradient(180deg, rgba(10,38,35,0.05) 0%, rgba(10,38,35,0.55) 100%)",
                 }}
               />
-              <div
-                style={{
-                  position: "absolute",
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  padding: "32px",
-                }}
-              >
-                <div
-                  className="font-[family-name:var(--font-data)]"
-                  style={{
-                    fontSize: "10px",
-                    letterSpacing: "0.22em",
-                    textTransform: "uppercase",
-                    color: "rgba(240,235,227,0.7)",
-                  }}
-                >
-                  Lagos boardroom
-                </div>
-              </div>
             </div>
           </div>
 

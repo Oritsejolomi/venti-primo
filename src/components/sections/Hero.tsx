@@ -101,7 +101,7 @@ export function Hero() {
           >
             Build.<br />
             Fund.<br />
-            <em style={{ fontStyle: "italic", fontWeight: 400 }}>Scale.</em>
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "#0D9488" }}>Scale.</em>
           </h1>
         </div>
       </div>
@@ -146,18 +146,18 @@ export function Hero() {
                 fontSize: "var(--text-small)",
                 fontWeight: 500,
                 letterSpacing: "0.04em",
-                color: "#0A2623",
-                background: "#F0EBE3",
+                color: "#F0EBE3",
+                background: "#115E59",
                 padding: "var(--space-4) var(--space-6)",
                 borderRadius: "9999px",
                 textDecoration: "none",
                 display: "inline-block",
                 transition: "background 200ms ease",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#FFFFFF")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#F0EBE3")}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#0D9488")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#115E59")}
             >
-              Our Practices →
+              Our Practices
             </a>
             <a
               href="#contact"

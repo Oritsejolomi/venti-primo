@@ -67,12 +67,11 @@ export function Insights() {
             fontSize: "var(--text-caption)",
             letterSpacing: "0.28em",
             textTransform: "uppercase",
-            color: "rgba(10,38,35,0.5)",
+            color: "#D4A853",
             marginBottom: "var(--space-7)",
           }}
         >
-          <span style={{ display: "inline-block", width: "32px", height: "1px", background: "rgba(10,38,35,0.5)", verticalAlign: "middle", marginRight: "16px" }} />
-          § 06 — Insights
+          06 Insights
         </div>
 
         <div
@@ -85,40 +84,16 @@ export function Insights() {
           <h2
             className="font-[family-name:var(--font-display)]"
             style={{
-              fontSize: "var(--text-display-sm)",
+              fontSize: "var(--text-h1)",
               fontWeight: 400,
-              lineHeight: 0.96,
-              letterSpacing: "-0.025em",
+              lineHeight: 1.2,
+              letterSpacing: "-0.02em",
               color: "#0A2623",
               maxWidth: "1100px",
             }}
           >
-            Market commentary
-            <br />
-            <em style={{ fontStyle: "italic", fontWeight: 400 }}>and intelligence.</em>
+            Market commentary.
           </h2>
-
-          <Link
-            href="/insights"
-            className="font-[family-name:var(--font-body)]"
-            style={{
-              fontSize: "var(--text-small)",
-              fontWeight: 500,
-              letterSpacing: "0.04em",
-              color: "#F0EBE3",
-              background: "#0A2623",
-              padding: "var(--space-3) var(--space-6)",
-              borderRadius: "9999px",
-              textDecoration: "none",
-              display: "inline-block",
-              transition: "background 200ms ease",
-              alignSelf: "flex-start",
-            }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#134E4A")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#0A2623")}
-          >
-            All insights →
-          </Link>
         </div>
 
         {/* Featured + secondary stack */}
@@ -293,7 +268,7 @@ function SecondaryArticle({
           letterSpacing: "0.02em",
         }}
       >
-        Read article →
+        Read article
       </div>
     </Link>
   );
