@@ -88,15 +88,15 @@ export function About() {
                 fontWeight: 500,
                 letterSpacing: "0.04em",
                 color: "#F0EBE3",
-                background: "#0D9488",
+                background: "#115E59",
                 padding: "16px 36px",
                 borderRadius: "9999px",
                 textDecoration: "none",
                 display: "inline-block",
                 transition: "background 200ms ease",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#0F766E")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#0D9488")}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#0D9488")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#115E59")}
             >
               Our Practices
             </a>

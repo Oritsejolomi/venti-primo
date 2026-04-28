@@ -413,7 +413,10 @@ export function Contact() {
                     <Select
                       label="Sector"
                       value={sector}
-                      onChange={(e) => setSector(e.target.value)}
+                      onChange={(e) => {
+                        setSector(e.target.value);
+                        if (e.target.value !== "Other") setOtherSector("");
+                      }}
                       options={SECTOR_OPTIONS}
                       required
                       placeholder="Select a sector"
@@ -458,6 +461,8 @@ export function Contact() {
                         resize: "none",
                         lineHeight: 1.6,
                         minHeight: "44px",
+                        // CSS field-sizing: content auto-grows the textarea as the user types.
+                        // Cast required because React's CSSProperties type does not yet include this property.
                         fieldSizing: "content",
                       } as React.CSSProperties}
                       className="placeholder:text-[rgba(10,38,35,0.3)] font-[family-name:var(--font-body)]"
